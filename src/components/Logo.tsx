@@ -1,14 +1,12 @@
-import Image from 'next/image'
-
-export default function Logo({ className = 'h-[26px] w-auto' }: { className?: string }) {
+export default function Logo({ className = '' }: { className?: string }) {
   return (
-    <Image
-      src="/assets/South-Beach-Project_logo_no_subline_1465x495.png"
-      alt="South Beach Mount Martha"
-      width={1465}
-      height={495}
-      className={`brightness-0 invert ${className}`}
-      priority
-    />
+    <div className={`flex flex-col leading-none ${className}`}>
+      <span className="font-cormorant italic font-light text-[22px] tracking-[0.06em]">
+        VSB
+      </span>
+      <span className="font-jost font-light text-[7px] tracking-[0.45em] uppercase mt-[3px]">
+        GROUP
+      </span>
+    </div>
   )
 }

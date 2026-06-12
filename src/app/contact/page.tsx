@@ -1,38 +1,25 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
 import InfoCard from '@/components/InfoCard'
 import ContactForm from '@/components/ContactForm'
+import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Contact | South Beach Restaurant' },
-  description: 'Get in touch with South Beach Restaurant in Mount Martha. Find our contact details, opening hours and location for relaxed coastal dining on the Mornington Peninsula.',
-  alternates: { canonical: 'https://sbmm.com.au/contact' },
+  title: { absolute: 'Contact | VSB Group' },
+  description:
+    'Get in touch with VSB Group. For venue-specific bookings and enquiries, visit Volpino or South Beach directly.',
+  alternates: { canonical: 'https://vsbgroup.com.au/contact' },
   openGraph: {
-    title: 'Contact | South Beach Restaurant',
-    description: 'Get in touch with South Beach Restaurant in Mount Martha. Find our contact details, opening hours and location for relaxed coastal dining on the Mornington Peninsula.',
-    url: 'https://sbmm.com.au/contact',
-    siteName: 'South Beach Restaurant',
+    title: 'Contact | VSB Group',
+    description: 'Get in touch with VSB Group.',
+    url: 'https://vsbgroup.com.au/contact',
     images: [{ url: '/assets/sbmm-contact-us-image-01.jpg', width: 1200, height: 630 }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact | South Beach Restaurant',
-    description: 'Get in touch with South Beach Restaurant in Mount Martha. Find our contact details, opening hours and location for relaxed coastal dining on the Mornington Peninsula.',
-  },
 }
-
-const defaultHours = [
-  { day: 'Monday',    hours: '7.30am – 2.30pm' },
-  { day: 'Tuesday',   hours: '7.30am – 2.30pm' },
-  { day: 'Wednesday', hours: '7.30am – 2.30pm' },
-  { day: 'Thursday',  hours: '7.30am – 2.30pm' },
-  { day: 'Friday',    hours: '7.30am – 2.30pm  +  4.30pm – close' },
-  { day: 'Saturday',  hours: '7.30am – 2.30pm  +  4.30pm – close' },
-  { day: 'Sunday',    hours: '7.30am – 2.30pm' },
-]
 
 export default function ContactPage() {
   return (
@@ -52,67 +39,82 @@ export default function ContactPage() {
 
               {/* Left: info */}
               <div>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
-                  Visit Us
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                  Group enquiries
                 </p>
                 <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-3 tracking-[0.02em]">
-                  Find us in Mount Martha
+                  Reach out to VSB Group
                 </h2>
                 <p className="text-[13px] text-warm font-jost font-light leading-[1.8] mb-6">
-                  Whether you&apos;re reserving a table, sharing your thoughts, or simply wanting to know
-                  more about South Beach, get in touch anytime. We&apos;re here to make your visit special.
+                  For general enquiries about VSB Group — including business, partnerships, and
+                  media — get in touch using the form or via email.
+                </p>
+                <p className="text-[13px] text-warm font-jost font-light leading-[1.8] mb-8">
+                  For venue-specific bookings, events and dining enquiries, please contact each
+                  venue directly via the links below.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   <InfoCard
-                    label="Address"
-                    value={<>464 Esplanade<br />Mount Martha VIC 3934</>}
-                  />
-                  <InfoCard
                     label="Email"
                     value={
-                      <a href="mailto:events@southbeachproject.com.au" className="hover:text-sky transition-colors break-all">
-                        events@southbeachproject.com.au
+                      <a href="mailto:samuel@vsbgroup.com.au" className="hover:text-gold transition-colors break-all">
+                        samuel@vsbgroup.com.au
                       </a>
                     }
                   />
-                </div>
-
-                {/* Opening hours */}
-                <div className="bg-sky-light rounded-[4px] border-l-2 border-sky px-[18px] py-4 mb-6">
-                  <p className="text-[9px] tracking-[0.18em] uppercase text-sky-dark font-jost font-normal mb-3">
-                    Opening Hours
-                  </p>
-                  <div className="space-y-[6px]">
-                    {defaultHours.map(({ day, hours }) => (
-                      <div key={day} className="flex justify-between text-[12px] font-jost font-light gap-4">
-                        <span className="text-charcoal shrink-0">{day}</span>
-                        <span className="text-warm text-right">{hours}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-[10px] text-warm/60 font-jost font-light italic mt-3">
-                    Sundays 10% surcharge · Public Holidays 20% surcharge
-                  </p>
-                </div>
-
-                {/* Map */}
-                <div className="rounded-[6px] overflow-hidden border border-sky/15">
-                  <iframe
-                    src="https://maps.google.com/maps?q=464+Esplanade+Mount+Martha+VIC+3934+Australia&output=embed"
-                    width="100%"
-                    className="h-[280px] md:h-[340px] block"
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="South Beach Restaurant location"
+                  <InfoCard
+                    label="Location"
+                    value={<>Mornington Peninsula<br />Victoria, Australia</>}
                   />
+                </div>
+
+                {/* Venue contacts */}
+                <div className="space-y-3">
+                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-jost font-normal">
+                    Venue Contacts
+                  </p>
+                  <div className="bg-cream rounded-[4px] border-l-2 border-gold px-[18px] py-4">
+                    <p className="text-[11px] font-jost font-normal text-charcoal mb-1">
+                      Volpino Pizzeria &amp; Wine Bar
+                    </p>
+                    <a
+                      href="https://volpino.com.au"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-gold font-jost font-light hover:opacity-70 transition-opacity"
+                    >
+                      volpino.com.au ↗
+                    </a>
+                  </div>
+                  <div className="bg-cream rounded-[4px] border-l-2 border-gold px-[18px] py-4">
+                    <p className="text-[11px] font-jost font-normal text-charcoal mb-1">
+                      South Beach Restaurant
+                    </p>
+                    <a
+                      href="https://sbmm.com.au/contact"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-gold font-jost font-light hover:opacity-70 transition-opacity"
+                    >
+                      sbmm.com.au/contact ↗
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <Link
+                    href="/bookings"
+                    className="text-[11px] tracking-[0.12em] uppercase text-gold font-jost font-normal border border-gold px-[22px] py-[12px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
+                  >
+                    Book a Table →
+                  </Link>
                 </div>
               </div>
 
               {/* Right: form */}
               <div className="mt-12 md:mt-0">
-                <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
                   Send a Message
                 </p>
                 <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
@@ -127,6 +129,8 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
+
+        <ColourDeviceStrip />
       </main>
       <Footer />
       <BottomNav />

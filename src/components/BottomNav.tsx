@@ -14,25 +14,6 @@ const tabs = [
     ),
   },
   {
-    href: '/menu',
-    label: 'Menu',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M4 6h16M4 12h16M4 18h10" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    href: '/whats-on',
-    label: 'Events',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
     href: '/bookings',
     label: 'Book',
     icon: (
@@ -42,12 +23,21 @@ const tabs = [
     ),
   },
   {
-    href: '/contact',
-    label: 'Find Us',
+    href: '/whats-on',
+    label: "What's On",
     icon: (
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 21C12 21 4.5 13.5 4.5 9a7.5 7.5 0 1115 0c0 4.5-7.5 12-7.5 12z" />
-        <circle cx="12" cy="9" r="2.5" />
+        <rect x="3" y="4" width="18" height="18" rx="2" />
+        <path d="M16 2v4M8 2v4M3 10h18" strokeLinecap="round" />
+      </svg>
+    ),
+  },
+  {
+    href: '/contact',
+    label: 'Contact',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },

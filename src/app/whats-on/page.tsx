@@ -1,220 +1,103 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
-import NewsletterForm from '@/components/NewsletterForm'
-import { PortableText } from '@portabletext/react'
-import type { PortableTextBlock } from '@portabletext/react'
-import { getEvents, getPosts } from '@/lib/sanity'
+import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
-  title: { absolute: "What's On | South Beach Restaurant" },
-  description: "See what's on at South Beach Restaurant in Mount Martha. Discover upcoming events, seasonal specials and what's happening at our coastal venue.",
-  alternates: { canonical: 'https://sbmm.com.au/whats-on' },
+  title: { absolute: "What's On | VSB Group" },
+  description:
+    "See what's on across our venues — events, specials and happenings at Volpino Pizzeria & Wine Bar and South Beach Restaurant.",
+  alternates: { canonical: 'https://vsbgroup.com.au/whats-on' },
   openGraph: {
-    title: "What's On | South Beach Restaurant",
-    description: "See what's on at South Beach Restaurant in Mount Martha. Discover upcoming events, seasonal specials and what's happening at our coastal venue.",
-    url: 'https://sbmm.com.au/whats-on',
-    siteName: 'South Beach Restaurant',
+    title: "What's On | VSB Group",
+    description: "See what's on across our venues on the Mornington Peninsula.",
+    url: 'https://vsbgroup.com.au/whats-on',
     images: [{ url: '/assets/sbmm-whats-on-image.jpg', width: 1200, height: 630 }],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: "What's On | South Beach Restaurant",
-    description: "See what's on at South Beach Restaurant in Mount Martha. Discover upcoming events, seasonal specials and what's happening at our coastal venue.",
+}
+
+const VENUES = [
+  {
+    name: 'Volpino Pizzeria & Wine Bar',
+    tag: 'Pizzeria & Wine Bar',
+    desc: 'Check Volpino\'s website for upcoming events, wine dinners, specials and seasonal happenings.',
+    cta: "What's On at Volpino",
+    href: 'https://volpino.com.au',
+    bg: null,
   },
-}
+  {
+    name: 'South Beach Restaurant',
+    tag: 'Coastal Restaurant & Bar',
+    desc: 'Discover upcoming events, ticketed dinners and seasonal specials at South Beach Restaurant in Mount Martha.',
+    cta: "What's On at South Beach",
+    href: 'https://sbmm.com.au/whats-on',
+    bg: '/assets/sbmm-whats-on-image.jpg',
+  },
+]
 
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
-
-type EventItem = {
-  _id: string
-  kind: 'event'
-  title: string
-  date: string
-  description?: PortableTextBlock[]
-  price?: string
-  bookingLink?: string
-  imageUrl?: string
-  bookingsRequired?: boolean
-}
-
-type PostItem = {
-  _id: string
-  kind: 'post'
-  title: string
-  date: string
-  excerpt?: string
-  imageUrl?: string
-  slug: string
-}
-
-type FeedItem = EventItem | PostItem
-
-export default async function WhatsOnPage() {
-  const [events, posts] = await Promise.all([
-    getEvents().catch(() => []),
-    getPosts().catch(() => []),
-  ])
-
-  const eventItems: EventItem[] = (events as Omit<EventItem, 'kind'>[]).map((e) => ({
-    ...e,
-    kind: 'event',
-    date: e.date,
-  }))
-
-  const postItems: PostItem[] = (posts as { _id: string; title: string; publishedAt: string; excerpt?: string; imageUrl?: string; slug: string }[]).map((p) => ({
-    _id: p._id,
-    kind: 'post',
-    title: p.title,
-    date: p.publishedAt,
-    excerpt: p.excerpt,
-    imageUrl: p.imageUrl,
-    slug: p.slug,
-  }))
-
-  const feed: FeedItem[] = [...eventItems, ...postItems].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  )
-
+export default function WhatsOnPage() {
   return (
     <>
       <Nav />
       <main>
         <PageHero
-          eyebrow="South Beach · Mount Martha"
+          eyebrow="Across Our Venues"
           title="What's On"
-          subtitle="Events, functions & seasonal happenings"
+          subtitle="Events and happenings at Volpino & South Beach"
           image="/assets/sbmm-whats-on-image.jpg"
         />
 
         <section className="bg-cream py-[48px] md:py-[64px]">
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
-              What&apos;s On
+            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+              Our venues
             </p>
-            <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-1 tracking-[0.02em]">
-              Events &amp; News
+            <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
+              Choose a venue
             </h2>
-            <p className="font-cormorant italic font-light text-[18px] text-warm mb-8">
-              Functions, specials &amp; coastal gatherings
+            <p className="font-cormorant italic font-light text-[18px] text-warm mb-10">
+              Events, specials &amp; seasonal happenings
             </p>
 
-            {feed.length === 0 ? (
-              <p className="text-[14px] text-warm font-jost font-light">
-                Nothing scheduled right now — check back soon.
+            <div className="grid md:grid-cols-2 gap-5">
+              {VENUES.map(({ name, tag, desc, cta, href }) => (
+                <div key={name} className="bg-white rounded-[4px] border border-[#EDECEA] px-6 py-7 flex flex-col">
+                  <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-jost font-normal mb-2">{tag}</p>
+                  <h3 className="font-cormorant font-light text-[24px] text-charcoal mb-3 leading-[1.1]">{name}</h3>
+                  <p className="text-[12px] text-warm font-jost font-light leading-[1.7] mb-6 flex-1">{desc}</p>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-center py-[13px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal bg-transparent border border-gold text-gold hover:bg-gold hover:text-white transition-colors"
+                  >
+                    {cta} ↗
+                  </a>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 bg-white rounded-[4px] border border-[#EDECEA] px-6 py-6">
+              <p className="text-[10px] tracking-[0.16em] uppercase text-gold font-jost font-normal mb-2">
+                Group events &amp; private functions
               </p>
-            ) : (
-              <div className="grid md:grid-cols-2 gap-5">
-                {feed.map((item) => {
-                  const formattedDate = new Date(item.date).toLocaleDateString('en-AU', {
-                    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
-                  })
-
-                  return (
-                    <div key={item._id} className="bg-white rounded-[6px] overflow-hidden border border-[#EDECEA] flex flex-col">
-                      {/* Image */}
-                      {item.imageUrl ? (
-                        <div className="relative h-[200px] overflow-hidden shrink-0">
-                          <Image
-                            src={item.imageUrl}
-                            alt={item.title}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                          />
-                          <div className="absolute inset-0 bg-sky-dark/45 flex items-center justify-center">
-                            <p className="font-cormorant italic font-light text-[26px] text-white tracking-[0.04em] px-4 text-center">
-                              {item.title}
-                            </p>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="h-[80px] bg-sky/10 flex items-center justify-center shrink-0">
-                          <p className="font-cormorant italic font-light text-[20px] text-charcoal/50 px-4 text-center">
-                            {item.title}
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Body */}
-                      <div className="px-5 py-[18px] flex flex-col flex-1">
-                        <div className="flex items-center gap-2 mb-[6px]">
-                          <p className="text-[10px] tracking-[0.16em] uppercase text-sky font-jost font-normal">
-                            {formattedDate}
-                          </p>
-                          {item.kind === 'post' && (
-                            <span className="text-[9px] tracking-[0.08em] uppercase text-white bg-sky px-[6px] py-[2px] rounded-[2px] font-jost">
-                              News
-                            </span>
-                          )}
-                        </div>
-
-                        <h3 className="font-cormorant font-normal text-[20px] text-charcoal mb-2 leading-[1.2]">
-                          {item.title}
-                        </h3>
-
-                        {/* Excerpt / description */}
-                        {item.kind === 'post' && item.excerpt && (
-                          <p className="text-[13px] text-warm font-jost font-light leading-[1.65] mb-4 flex-1">
-                            {item.excerpt}
-                          </p>
-                        )}
-                        {item.kind === 'event' && item.description && (
-                          <div className="text-[13px] text-warm font-jost font-light leading-[1.65] mb-4 flex-1 [&_p]:mb-2 [&_h3]:font-cormorant [&_h3]:text-[17px] [&_h3]:text-charcoal [&_h3]:mb-1 [&_h4]:font-cormorant [&_h4]:text-[15px] [&_h4]:text-charcoal [&_h4]:mb-1">
-                            <PortableText value={item.description} />
-                          </div>
-                        )}
-
-                        {/* Footer row */}
-                        <div className="flex items-center justify-between gap-3 mt-auto pt-3">
-                          <div>
-                            {item.kind === 'event' && item.price && (
-                              <p className="text-[12px] text-charcoal font-jost font-light">
-                                {item.price}
-                              </p>
-                            )}
-                            {item.kind === 'event' && item.bookingsRequired && (
-                              <span className="text-[9px] tracking-[0.1em] uppercase text-sky bg-sky-light px-[6px] py-[2px] rounded-[2px] font-jost inline-block mt-1">
-                                Bookings required
-                              </span>
-                            )}
-                          </div>
-
-                          {item.kind === 'post' ? (
-                            <Link
-                              href={`/whats-on/${item.slug}`}
-                              className="text-[10px] tracking-[0.14em] uppercase text-sky font-jost font-normal shrink-0 hover:text-sky-dark transition-colors"
-                            >
-                              Read more →
-                            </Link>
-                          ) : (
-                            item.bookingLink && (
-                              <a
-                                href={item.bookingLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-[10px] tracking-[0.14em] uppercase text-sky font-jost font-normal shrink-0"
-                              >
-                                Book now →
-                              </a>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            )}
+              <p className="text-[13px] text-warm font-jost font-light leading-[1.8] mb-4">
+                Planning a private event, function or celebration? Both of our venues offer spaces
+                for private dining and events. Get in touch with the team to discuss your occasion.
+              </p>
+              <a
+                href="/contact"
+                className="text-[11px] tracking-[0.14em] uppercase text-gold font-jost font-normal hover:opacity-70 transition-opacity"
+              >
+                Make an Enquiry →
+              </a>
+            </div>
           </div>
         </section>
 
-        <NewsletterForm />
+        <ColourDeviceStrip />
       </main>
       <Footer />
       <BottomNav />

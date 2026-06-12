@@ -5,39 +5,34 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
-import { BeachShackBand } from '@/components/BeachShackBand'
 import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
-  title: { absolute: 'About | South Beach Restaurant' },
-  description: 'South Beach Restaurant is a coastal bistro, bar and kiosk in Mount Martha. Our story is shaped by good food, relaxed spaces and the beach culture of the Mornington Peninsula.',
-  alternates: { canonical: 'https://sbmm.com.au/about' },
+  title: { absolute: 'About | VSB Group' },
+  description:
+    'VSB Group is a hospitality company based on Victoria\'s Mornington Peninsula, operating Volpino Pizzeria & Wine Bar and South Beach Restaurant.',
+  alternates: { canonical: 'https://vsbgroup.com.au/about' },
   openGraph: {
-    title: 'About | South Beach Restaurant',
-    description: 'South Beach Restaurant is a coastal bistro, bar and kiosk in Mount Martha. Our story is shaped by good food, relaxed spaces and the beach culture of the Mornington Peninsula.',
-    url: 'https://sbmm.com.au/about',
-    siteName: 'South Beach Restaurant',
+    title: 'About | VSB Group',
+    description:
+      'VSB Group is a hospitality company based on Victoria\'s Mornington Peninsula, operating Volpino Pizzeria & Wine Bar and South Beach Restaurant.',
+    url: 'https://vsbgroup.com.au/about',
     images: [{ url: '/assets/South-Beach-Project-Exterior-05-2400x1300-1.jpg', width: 1200, height: 630 }],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'About | South Beach Restaurant',
-    description: 'South Beach Restaurant is a coastal bistro, bar and kiosk in Mount Martha. Our story is shaped by good food, relaxed spaces and the beach culture of the Mornington Peninsula.',
   },
 }
 
-const HOW_WE_DO_IT = [
+const VALUES = [
   {
-    title: 'Coastal & Fresh',
-    body: 'Our menu changes with the seasons and the tides. We source locally wherever possible — from the Peninsula\'s farms, fishermen and makers.',
+    title: 'Quality First',
+    body: 'Every decision — from the produce on the plate to the design of our spaces — is made with care and intention. We hold ourselves to a high standard because our guests deserve it.',
   },
   {
-    title: 'All Day',
-    body: 'From golden morning pastries to long lunches and sunset drinks, South Beach is open from 7.30am every day. Drop in, stay a while.',
+    title: 'Genuine Hospitality',
+    body: 'Hospitality isn\'t a transaction, it\'s a relationship. We build venues where guests feel genuinely welcomed — not just served.',
   },
   {
-    title: 'Events & Functions',
-    body: 'Four beautifully designed spaces for 15–60 guests. From garden brunches to waterfront weddings, we make every occasion special.',
+    title: 'Rooted in Place',
+    body: 'The Mornington Peninsula is where we call home, and it shapes everything we do — from the local produce we source to the communities we invest in.',
   },
 ]
 
@@ -47,10 +42,10 @@ export default function AboutPage() {
       <Nav />
       <main>
         <PageHero
-          eyebrow="South Beach · Mount Martha"
-          title="About South Beach"
-          subtitle="Simple, coastal, good"
-          image="/assets/about-top-image-view.jpg"
+          eyebrow="VSB Group"
+          title="Our Story"
+          subtitle="Hospitality with heart"
+          image="/assets/South-Beach-Project-Exterior-05-2400x1300-1.jpg"
         />
 
         {/* Our Story */}
@@ -58,31 +53,37 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
             <div className="md:grid md:grid-cols-2 md:gap-16 items-start">
               <div>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
-                  Our Story
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                  About Us
                 </p>
                 <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
-                  A restaurant, bar &amp; events venue by the sea
+                  A hospitality group with a sense of place
                 </h2>
                 <p className="font-cormorant italic font-light text-[18px] text-warm mb-6">
-                  Overlooking the beachfront at Mount Martha
+                  Based on Victoria&apos;s Mornington Peninsula
                 </p>
                 <div className="text-[13px] leading-[1.8] text-warm font-jost font-light space-y-5 max-w-xl">
                   <p>
-                    South Beach is a restaurant, bar, and events venue in Mount Martha, on Victoria&apos;s
-                    Mornington Peninsula. Overlooking the beachfront, we serve fresh coastal flavours,
-                    innovative drinks, and showcase relaxed yet stylish spaces. Ideal for casual dining,
-                    private events, and sunset drinks, South Beach brings the spirit of Mount Martha alive.
+                    VSB Group is a hospitality company based on Victoria&apos;s Mornington Peninsula.
+                    We operate and develop distinctive dining venues — each with its own identity,
+                    team, and sense of place.
                   </p>
-                  <p className="font-jost font-normal tracking-[0.1em] uppercase text-[12px] text-charcoal">
-                    Simple. Coastal. Good.
+                  <p>
+                    Our venues are built around a shared belief: that great hospitality is about more
+                    than just food. It&apos;s about the feeling of welcome, the quality of the experience,
+                    and the community you create around the table.
+                  </p>
+                  <p>
+                    Today, VSB Group operates two venues on the Mornington Peninsula: Volpino Pizzeria
+                    &amp; Wine Bar and South Beach Restaurant. We&apos;re proud of what both teams have
+                    built, and excited about what&apos;s ahead.
                   </p>
                 </div>
               </div>
-              <div className="relative mt-10 md:mt-0 h-[280px] md:h-[440px] rounded-[4px] overflow-hidden">
+              <div className="relative mt-10 md:mt-0 h-[280px] md:h-[460px] rounded-[4px] overflow-hidden">
                 <Image
-                  src="/assets/south-beach-about-05.jpg"
-                  alt="South Beach Restaurant"
+                  src="/assets/SOUTH-BEACH_2400x1300_DSC_9232.jpg"
+                  alt="VSB Group dining"
                   fill
                   className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -93,19 +94,18 @@ export default function AboutPage() {
         </section>
 
         <ColourDeviceStrip />
-        <BeachShackBand />
 
-        {/* How we do it */}
+        {/* Values */}
         <section className="bg-cream py-[48px] md:py-[64px]">
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
-              What we&apos;re about
+            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+              What we stand for
             </p>
             <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-8 tracking-[0.02em]">
-              How we do it
+              Our values
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
-              {HOW_WE_DO_IT.map(({ title, body }) => (
+              {VALUES.map(({ title, body }) => (
                 <div key={title}>
                   <h3 className="font-cormorant font-normal text-[22px] text-charcoal mb-3">{title}</h3>
                   <p className="text-[13px] text-warm font-jost font-light leading-[1.8]">{body}</p>
@@ -117,35 +117,60 @@ export default function AboutPage() {
 
         <ColourDeviceStrip />
 
-        {/* Team */}
+        {/* Venues */}
         <section className="bg-white py-[48px] md:py-[64px]">
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
-              The team
+            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+              Where to find us
             </p>
             <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
-              The people behind South Beach
+              Our venues
             </h2>
             <p className="font-cormorant italic font-light text-[18px] text-warm mb-8">
-              A tight team who love what they do
+              Each one distinct. Each one ours.
             </p>
-            <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-              <div className="relative h-[260px] md:h-[360px] rounded-[4px] overflow-hidden mb-8 md:mb-0">
-                <Image
-                  src="/assets/sbmm-staff-photo.jpg"
-                  alt="South Beach team"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div>
-                <p className="text-[13px] leading-[1.8] text-warm font-jost font-light">
-                  South Beach is a community restaurant through and through. Every decision — from the
-                  produce on the plate to the wine in the glass — is made with care and intention.
-                  We&apos;re proud to have built something that feels genuinely local, genuinely coastal,
-                  and genuinely ours.
+
+            <div className="grid md:grid-cols-2 gap-5">
+              <div className="bg-cream rounded-[4px] border border-[#EDECEA] px-6 py-7">
+                <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-jost font-normal mb-2">
+                  Pizzeria &amp; Wine Bar
                 </p>
+                <h3 className="font-cormorant font-light text-[26px] text-charcoal mb-3 leading-[1.1]">
+                  Volpino Pizzeria &amp; Wine Bar
+                </h3>
+                <p className="text-[12px] text-warm font-jost font-light leading-[1.7] mb-5">
+                  Wood-fired pizza, handmade pasta, and an exceptional wine list in a warm, convivial
+                  atmosphere. Volpino brings a genuine Italian spirit to the Peninsula.
+                </p>
+                <a
+                  href="https://volpino.com.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] tracking-[0.14em] uppercase text-gold font-jost font-normal hover:opacity-70 transition-opacity"
+                >
+                  Visit Volpino ↗
+                </a>
+              </div>
+
+              <div className="bg-cream rounded-[4px] border border-[#EDECEA] px-6 py-7">
+                <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-jost font-normal mb-2">
+                  Coastal Restaurant &amp; Bar
+                </p>
+                <h3 className="font-cormorant font-light text-[26px] text-charcoal mb-3 leading-[1.1]">
+                  South Beach Restaurant
+                </h3>
+                <p className="text-[12px] text-warm font-jost font-light leading-[1.7] mb-5">
+                  Fresh coastal flavours, beachside views and a relaxed atmosphere at 464 Esplanade,
+                  Mount Martha. Open daily for breakfast, brunch and lunch.
+                </p>
+                <a
+                  href="https://sbmm.com.au"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[10px] tracking-[0.14em] uppercase text-gold font-jost font-normal hover:opacity-70 transition-opacity"
+                >
+                  Visit South Beach ↗
+                </a>
               </div>
             </div>
           </div>
@@ -155,23 +180,18 @@ export default function AboutPage() {
         <section className="bg-charcoal py-[48px] md:py-[56px] text-white">
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
             <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
-              Visit Us
+              Get in touch
             </p>
             <h2 className="font-cormorant font-light text-[34px] md:text-[42px] leading-[1.05] mb-6">
-              Come find us
+              Ready to dine?
             </h2>
-            <p className="text-[13px] text-white/55 font-jost font-light mb-6">
-              464 Esplanade, Mount Martha VIC 3934
-            </p>
             <div className="flex gap-3 flex-wrap">
-              <a
-                href="https://www.sevenrooms.com/explore/southbeachproject/reservations/create/search/?date=2026-01-16&venues=southbeachproject%2Cvolpinopizzeriaandwinebar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-sky text-white px-[22px] py-[13px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal hover:bg-sky-dark transition-colors"
+              <Link
+                href="/bookings"
+                className="bg-gold text-charcoal px-[22px] py-[13px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal hover:opacity-90 transition-opacity"
               >
-                Book a Table
-              </a>
+                Book Now
+              </Link>
               <Link
                 href="/contact"
                 className="bg-transparent border border-white/40 text-white px-[22px] py-[12px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal hover:bg-white/8 transition-colors"
