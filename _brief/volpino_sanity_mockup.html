@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volpino — Sanity CMS Dashboard Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --green:#00856A;--green-dark:#005A47;--green-light:#E8F5F1;
+  --charcoal:#1A1916;--warm:#6B6459;
+  --sanity-bg:#101112;--sanity-sidebar:#161719;--sanity-panel:#1C1E20;
+  --sanity-border:#2A2C2E;--sanity-hover:#222426;
+  --sanity-text:#E8E8E6;--sanity-muted:#7A7A78;--sanity-accent:#F36458;
+  --sanity-blue:#5B9CF6;--sanity-green:#4CAF8A;
+  --gold:#D4A853;
+}
+body{font-family:'Geist',sans-serif;font-weight:400;background:#0D0D0D;color:var(--sanity-text);overflow-x:hidden}
+
+/* PAGE WRAPPER */
+.page{max-width:1600px;margin:0 auto;padding:32px 24px 60px}
+.page-header{text-align:center;margin-bottom:28px}
+.page-header h1{font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#444;font-weight:400;margin-bottom:4px}
+.page-header p{font-size:11px;color:#333;letter-spacing:0.06em}
+
+/* SCREEN FRAMES */
+.screens{display:flex;gap:32px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
+.screen-wrap{flex-shrink:0}
+.screen-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#444;text-align:center;margin-bottom:10px}
+
+/* DESKTOP FRAME */
+.desktop-frame{width:1100px;background:#0a0a0a;border-radius:14px;padding:10px 10px 6px;box-shadow:0 0 0 1px #2a2a2a,0 40px 80px rgba(0,0,0,0.8)}
+.desktop-bar{background:#1a1a1a;border-radius:6px 6px 0 0;height:32px;display:flex;align-items:center;padding:0 12px;gap:7px}
+.dot{width:10px;height:10px;border-radius:50%}
+.dr{background:#FF5F57}.dy{background:#FEBC2E}.dg{background:#28C840}
+.url-bar{flex:1;margin-left:8px;background:#252525;border-radius:4px;height:20px;display:flex;align-items:center;padding:0 10px}
+.url-text{font-size:10px;color:#555;font-family:'Geist',sans-serif}
+.desktop-screen{border-radius:0 0 6px 6px;overflow:hidden;background:var(--sanity-bg);display:flex;height:680px}
+
+/* LAPTOP FRAME */
+.laptop-frame{width:680px;background:#0a0a0a;border-radius:14px;padding:10px 10px 6px;box-shadow:0 0 0 1px #2a2a2a,0 40px 80px rgba(0,0,0,0.8)}
+.laptop-screen{border-radius:0 0 6px 6px;overflow:hidden;background:var(--sanity-bg);display:flex;height:500px}
+
+/* SANITY STUDIO LAYOUT */
+.studio{display:flex;width:100%;height:100%}
+
+/* SIDEBAR */
+.sidebar{width:220px;flex-shrink:0;background:var(--sanity-sidebar);border-right:1px solid var(--sanity-border);display:flex;flex-direction:column;overflow:hidden}
+.sidebar-top{padding:14px 12px 10px;border-bottom:1px solid var(--sanity-border)}
+.sidebar-project{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:6px;cursor:pointer}
+.project-icon{width:28px;height:28px;background:var(--green);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.project-icon svg{height:12px;width:auto}
+.project-name{font-size:12px;font-weight:500;color:var(--sanity-text);line-height:1.2}
+.project-org{font-size:10px;color:var(--sanity-muted)}
+.sidebar-nav{flex:1;padding:8px 6px;overflow-y:auto}
+.nav-section-label{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--sanity-muted);padding:10px 8px 4px;font-weight:500}
+.nav-item{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:5px;cursor:pointer;margin-bottom:1px}
+.nav-item:hover{background:var(--sanity-hover)}
+.nav-item.active{background:rgba(91,156,246,0.12);color:var(--sanity-blue)}
+.nav-item.active .nav-icon{color:var(--sanity-blue)}
+.nav-icon{width:16px;height:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--sanity-muted);font-size:13px}
+.nav-label{font-size:12px;color:var(--sanity-text);flex:1}
+.nav-item.active .nav-label{color:var(--sanity-blue)}
+.nav-badge{font-size:9px;background:var(--sanity-accent);color:#fff;padding:1px 5px;border-radius:10px;font-weight:500}
+.sidebar-bottom{padding:8px 6px;border-top:1px solid var(--sanity-border)}
+
+/* CONTENT AREA */
+.content{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.content-header{padding:14px 20px;border-bottom:1px solid var(--sanity-border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.content-title{font-size:14px;font-weight:500;color:var(--sanity-text)}
+.content-subtitle{font-size:11px;color:var(--sanity-muted);margin-top:1px}
+.header-actions{display:flex;gap:8px;align-items:center}
+.btn-primary{background:var(--sanity-blue);color:#fff;padding:6px 14px;border-radius:5px;font-size:11px;font-weight:500;border:none;cursor:pointer;font-family:'Geist',sans-serif}
+.btn-secondary{background:var(--sanity-panel);color:var(--sanity-text);padding:6px 14px;border-radius:5px;font-size:11px;border:1px solid var(--sanity-border);cursor:pointer;font-family:'Geist',sans-serif}
+.content-body{flex:1;overflow-y:auto;padding:16px 20px}
+.content-body::-webkit-scrollbar{width:4px}
+.content-body::-webkit-scrollbar-track{background:transparent}
+.content-body::-webkit-scrollbar-thumb{background:var(--sanity-border);border-radius:2px}
+
+/* DOCUMENT LIST */
+.doc-list-header{display:grid;grid-template-columns:2fr 1fr 1fr 80px;gap:12px;padding:6px 12px;margin-bottom:4px}
+.doc-list-header span{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sanity-muted)}
+.doc-item{display:grid;grid-template-columns:2fr 1fr 1fr 80px;gap:12px;padding:10px 12px;border-radius:6px;cursor:pointer;align-items:center;border:1px solid transparent;margin-bottom:2px}
+.doc-item:hover{background:var(--sanity-hover);border-color:var(--sanity-border)}
+.doc-item.active{background:rgba(91,156,246,0.08);border-color:rgba(91,156,246,0.2)}
+.doc-name{font-size:12px;color:var(--sanity-text);font-weight:500;display:flex;align-items:center;gap:8px}
+.doc-meta{font-size:11px;color:var(--sanity-muted)}
+.status-pill{font-size:9px;padding:2px 7px;border-radius:10px;font-weight:500;display:inline-block}
+.status-published{background:rgba(76,175,138,0.15);color:var(--sanity-green)}
+.status-draft{background:rgba(243,100,88,0.15);color:var(--sanity-accent)}
+.doc-icon{width:20px;height:20px;background:var(--sanity-panel);border-radius:4px;border:1px solid var(--sanity-border);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--sanity-muted);flex-shrink:0}
+
+/* EDITOR PANEL */
+.editor-panel{width:380px;flex-shrink:0;border-left:1px solid var(--sanity-border);background:var(--sanity-panel);display:flex;flex-direction:column;overflow:hidden}
+.editor-header{padding:12px 16px;border-bottom:1px solid var(--sanity-border);display:flex;align-items:center;justify-content:space-between}
+.editor-doc-type{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--sanity-muted);margin-bottom:3px}
+.editor-doc-name{font-size:13px;font-weight:500;color:var(--sanity-text)}
+.editor-body{flex:1;overflow-y:auto;padding:14px 16px}
+.editor-body::-webkit-scrollbar{width:3px}
+.editor-body::-webkit-scrollbar-thumb{background:var(--sanity-border)}
+.field-group{margin-bottom:16px}
+.field-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sanity-muted);margin-bottom:6px;font-weight:500;display:flex;align-items:center;gap:6px}
+.field-req{font-size:8px;background:rgba(243,100,88,0.15);color:var(--sanity-accent);padding:1px 4px;border-radius:3px}
+.field-input{background:var(--sanity-bg);border:1px solid var(--sanity-border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--sanity-text);width:100%;font-family:'Geist',sans-serif}
+.field-input.focused{border-color:var(--sanity-blue);outline:none}
+.field-input-row{display:grid;grid-template-columns:1fr 80px;gap:8px}
+.field-select{background:var(--sanity-bg);border:1px solid var(--sanity-border);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--sanity-text);width:100%;font-family:'Geist',sans-serif}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap}
+.tag{display:flex;align-items:center;gap:4px;background:var(--sanity-bg);border:1px solid var(--sanity-border);border-radius:4px;padding:4px 8px;font-size:11px;color:var(--sanity-muted);cursor:pointer}
+.tag.active{background:rgba(76,175,138,0.1);border-color:var(--sanity-green);color:var(--sanity-green)}
+.tag-check{width:12px;height:12px;border-radius:2px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;font-size:8px}
+.price-display{font-size:22px;font-weight:500;color:var(--sanity-text);letter-spacing:-0.02em;padding:8px 0 2px}
+.editor-footer{padding:12px 16px;border-top:1px solid var(--sanity-border);display:flex;gap:8px}
+.btn-publish{background:var(--sanity-green);color:#fff;padding:8px 16px;border-radius:5px;font-size:11px;font-weight:500;border:none;cursor:pointer;flex:1;font-family:'Geist',sans-serif}
+.btn-discard{background:transparent;color:var(--sanity-muted);padding:8px 12px;border-radius:5px;font-size:11px;border:1px solid var(--sanity-border);cursor:pointer;font-family:'Geist',sans-serif}
+.changes-badge{font-size:9px;background:rgba(243,100,88,0.15);color:var(--sanity-accent);padding:2px 6px;border-radius:3px;margin-left:6px}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--sanity-border)}
+.section-name{font-size:12px;font-weight:500;color:var(--sanity-text);display:flex;align-items:center;gap:8px}
+.section-count{font-size:10px;color:var(--sanity-muted);background:var(--sanity-panel);padding:2px 7px;border-radius:10px;border:1px solid var(--sanity-border)}
+.add-item-btn{font-size:10px;color:var(--sanity-blue);cursor:pointer;display:flex;align-items:center;gap:4px}
+
+/* EVENTS VIEW */
+.event-card-editor{background:var(--sanity-bg);border:1px solid var(--sanity-border);border-radius:6px;overflow:hidden;margin-bottom:10px;cursor:pointer}
+.event-card-editor:hover{border-color:rgba(91,156,246,0.3)}
+.event-card-editor.active{border-color:var(--sanity-blue)}
+.event-img-placeholder{height:80px;background:linear-gradient(135deg,var(--sanity-panel) 0%,#1a2a25 100%);display:flex;align-items:center;justify-content:center;position:relative}
+.event-img-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.event-img-label{font-size:10px;color:var(--sanity-muted)}
+.upload-hint{font-size:9px;color:var(--sanity-muted);margin-top:3px}
+.event-card-meta{padding:10px 12px}
+.event-card-date{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sanity-blue);margin-bottom:3px}
+.event-card-title{font-size:12px;font-weight:500;color:var(--sanity-text)}
+.event-card-status{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+
+/* HOURS VIEW */
+.hours-day{display:grid;grid-template-columns:100px 1fr 1fr 40px;gap:8px;align-items:center;padding:8px 12px;border-radius:5px;margin-bottom:4px;background:var(--sanity-bg);border:1px solid var(--sanity-border)}
+.hours-day-name{font-size:12px;color:var(--sanity-text);font-weight:500}
+.hours-toggle{width:32px;height:18px;background:var(--sanity-green);border-radius:9px;position:relative;cursor:pointer;flex-shrink:0}
+.hours-toggle.off{background:var(--sanity-border)}
+.hours-toggle::after{content:'';position:absolute;width:14px;height:14px;background:#fff;border-radius:50%;top:2px;right:2px;transition:right 0.15s}
+.hours-toggle.off::after{right:auto;left:2px}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:6px;padding:8px 20px;border-bottom:1px solid var(--sanity-border);flex-shrink:0}
+.bc-item{font-size:11px;color:var(--sanity-muted);cursor:pointer}
+.bc-item.active{color:var(--sanity-text)}
+.bc-sep{font-size:10px;color:var(--sanity-border)}
+
+/* SEARCH BAR */
+.search-bar{display:flex;align-items:center;gap:8px;background:var(--sanity-panel);border:1px solid var(--sanity-border);border-radius:6px;padding:7px 12px;margin-bottom:14px}
+.search-icon{font-size:12px;color:var(--sanity-muted)}
+.search-input{background:transparent;border:none;outline:none;font-size:12px;color:var(--sanity-text);flex:1;font-family:'Geist',sans-serif}
+.search-input::placeholder{color:var(--sanity-muted)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--sanity-border);margin:12px 0}
+
+/* TOOLTIP STYLE NOTE */
+.note-box{background:rgba(91,156,246,0.08);border:1px solid rgba(91,156,246,0.2);border-radius:5px;padding:8px 10px;font-size:10px;color:rgba(91,156,246,0.8);margin-bottom:14px;line-height:1.5}
+
+/* SCREEN TABS */
+.screen-tabs{display:flex;gap:0;margin-bottom:20px;justify-content:center}
+.stab{padding:8px 20px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#444;cursor:pointer;border-bottom:1.5px solid transparent}
+.stab.on{color:var(--green);border-bottom-color:var(--green)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <h1>Volpino — Sanity CMS Dashboard Mockup</h1>
+    <p>What the content management backend looks like · Three screens shown</p>
+  </div>
+
+  <!-- SCREEN 1: MENU EDITOR -->
+  <div style="margin-bottom:48px">
+    <p class="screen-label">Screen 1 of 3 — Menu Editor</p>
+    <div class="desktop-frame">
+      <div class="desktop-bar">
+        <div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div>
+        <div class="url-bar"><span class="url-text">volpino.sanity.studio/structure/menu</span></div>
+      </div>
+      <div class="desktop-screen">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+          <div class="sidebar-top">
+            <div class="sidebar-project">
+              <div class="project-icon"><svg id="Layer_1" style="height:12px;width:auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 313.74 39.77">
+  <!-- Generator: Adobe Illustrator 29.8.5, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st2 {
+        clip-path: url(#clippath-2);
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+  </defs>
+  <polygon class="st3" points="28.62 1.99 17.92 27.05 7.14 1.99 1.98 1.99 17.42 37.83 18.58 37.83 33.72 1.99 28.62 1.99"/>
+  <g class="st4">
+    <path class="st3" d="M70.02,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M69.81,1.48c5.53,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.9-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+  <polygon class="st3" points="110.05 1.99 110.05 37.67 131.31 37.67 131.31 33.03 115.18 33.03 115.18 1.99 110.05 1.99"/>
+  <g class="st1">
+    <path class="st3" d="M160.56,6.49h-5.31v11.16h5.62c2.08,0,3.69-.49,4.82-1.47,1.13-.98,1.69-2.38,1.69-4.2,0-3.66-2.27-5.49-6.82-5.49M150.1,37.67V1.94h11.36c3.42,0,6.14.92,8.18,2.76,2.03,1.84,3.05,4.31,3.05,7.41,0,2.07-.52,3.91-1.57,5.52-1.04,1.6-2.47,2.76-4.28,3.48-1.81.73-4.41,1.09-7.79,1.09h-3.8v15.48h-5.15Z"/>
+  </g>
+  <rect class="st3" x="191.79" y="1.99" width="5.13" height="35.68"/>
+  <polygon class="st3" points="247.91 1.99 247.91 29.7 223.76 1.99 219.61 1.99 219.61 37.67 224.43 37.67 224.43 10.19 248.38 37.67 252.79 37.67 252.79 1.99 247.91 1.99"/>
+  <g class="st2">
+    <path class="st3" d="M292.82,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10.01-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M292.62,1.48c5.54,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.89-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+</svg></div>
+              <div>
+                <div class="project-name">Volpino</div>
+                <div class="project-org">volpino.com.au</div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-nav">
+            <div class="nav-section-label">Content</div>
+            <div class="nav-item active">
+              <div class="nav-icon">☰</div>
+              <div class="nav-label">Menu</div>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon">★</div>
+              <div class="nav-label">What's On</div>
+              <div class="nav-badge">3</div>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon">◷</div>
+              <div class="nav-label">Opening Hours</div>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon">✦</div>
+              <div class="nav-label">Specials Board</div>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon">⚙</div>
+              <div class="nav-label">Settings</div>
+            </div>
+            <div class="nav-section-label" style="margin-top:8px">Sites</div>
+            <div class="nav-item">
+              <div class="nav-icon" style="width:16px;height:16px;background:#1a2a25;border-radius:3px;border:1px solid #2a3a30;font-size:8px;color:var(--green)">V</div>
+              <div class="nav-label">Volpino</div>
+            </div>
+            <div class="nav-item">
+              <div class="nav-icon" style="width:16px;height:16px;background:#1a1f2a;border-radius:3px;border:1px solid #2a2f3a;font-size:8px;color:var(--sanity-blue)">S</div>
+              <div class="nav-label" style="color:var(--sanity-muted)">South Beach</div>
+            </div>
+          </div>
+          <div class="sidebar-bottom">
+            <div class="nav-item">
+              <div class="nav-icon">👤</div>
+              <div class="nav-label" style="font-size:11px">Jonas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+          <div class="breadcrumb">
+            <span class="bc-item">Menu</span>
+            <span class="bc-sep">›</span>
+            <span class="bc-item active">Small Plates</span>
+          </div>
+          <div class="content-header">
+            <div>
+              <div class="content-title">Menu</div>
+              <div class="content-subtitle">17 sections · 68 items total</div>
+            </div>
+            <div class="header-actions">
+              <button class="btn-secondary">+ Add Section</button>
+              <button class="btn-primary">+ Add Item</button>
+            </div>
+          </div>
+          <div class="content-body">
+            <div class="search-bar">
+              <span class="search-icon">⌕</span>
+              <input class="search-input" placeholder="Search menu items…">
+            </div>
+
+            <!-- Small Plates Section -->
+            <div class="section-header">
+              <div class="section-name">
+                <span style="color:var(--sanity-muted);font-size:10px">▼</span>
+                Small Plates
+                <span class="section-count">8 items</span>
+              </div>
+              <span class="add-item-btn">+ Add item</span>
+            </div>
+            <div class="doc-list-header">
+              <span>Dish name</span><span>Price</span><span>Tags</span><span>Status</span>
+            </div>
+            <div class="doc-item active">
+              <div class="doc-name">
+                <div class="doc-icon">🍽</div>
+                Calamari fritti
+              </div>
+              <div class="doc-meta">$24</div>
+              <div class="doc-meta" style="display:flex;gap:4px">
+                <span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">GR</span>
+              </div>
+              <div><span class="status-pill status-published">Published</span></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><div class="doc-icon">🍽</div>Waygu bresaola</div>
+              <div class="doc-meta">$22</div>
+              <div class="doc-meta"><span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">GR</span></div>
+              <div><span class="status-pill status-published">Published</span></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><div class="doc-icon">🍽</div>Crumbed zucchini flowers</div>
+              <div class="doc-meta">$22</div>
+              <div class="doc-meta" style="display:flex;gap:4px">
+                <span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">V</span>
+              </div>
+              <div><span class="status-pill status-published">Published</span></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><div class="doc-icon">🍽</div>Grilled saganaki</div>
+              <div class="doc-meta">$21</div>
+              <div class="doc-meta" style="display:flex;gap:4px">
+                <span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">V</span>
+                <span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">GR</span>
+              </div>
+              <div><span class="status-pill status-published">Published</span></div>
+            </div>
+            <div class="doc-item">
+              <div class="doc-name"><div class="doc-icon">🍽</div>Cantabrian anchovie</div>
+              <div class="doc-meta">$22</div>
+              <div class="doc-meta"><span style="font-size:9px;background:rgba(76,175,138,0.1);color:var(--sanity-green);padding:1px 5px;border-radius:3px">GR</span></div>
+              <div><span class="status-pill status-draft">Draft</span></div>
+            </div>
+
+            <!-- Pizza Section collapsed -->
+            <div class="section-header" style="margin-top:14px">
+              <div class="section-name">
+                <span style="color:var(--sanity-muted);font-size:10px">▶</span>
+                Wood Fired Pizza — Tomato Base
+                <span class="section-count">6 items</span>
+              </div>
+              <span class="add-item-btn">+ Add item</span>
+            </div>
+            <div class="section-header" style="margin-top:4px">
+              <div class="section-name">
+                <span style="color:var(--sanity-muted);font-size:10px">▶</span>
+                Wood Fired Pizza — White Base
+                <span class="section-count">5 items</span>
+              </div>
+              <span class="add-item-btn">+ Add item</span>
+            </div>
+            <div class="section-header" style="margin-top:4px">
+              <div class="section-name">
+                <span style="color:var(--sanity-muted);font-size:10px">▶</span>
+                House Made Pasta & Risotto
+                <span class="section-count">6 items</span>
+              </div>
+              <span class="add-item-btn">+ Add item</span>
+            </div>
+            <div class="note-box" style="margin-top:16px">Changes to menu items publish instantly to volpino.com.au — no developer needed.</div>
+          </div>
+        </div>
+
+        <!-- EDITOR PANEL -->
+        <div class="editor-panel">
+          <div class="editor-header">
+            <div>
+              <div class="editor-doc-type">Menu Item</div>
+              <div class="editor-doc-name">Calamari fritti <span class="changes-badge">Unsaved</span></div>
+            </div>
+            <span style="font-size:10px;color:var(--sanity-muted);cursor:pointer">✕</span>
+          </div>
+          <div class="editor-body">
+            <div class="field-group">
+              <div class="field-label">Dish name <span class="field-req">Required</span></div>
+              <input class="field-input focused" value="Calamari fritti">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Description</div>
+              <div style="background:var(--sanity-bg);border:1px solid var(--sanity-blue);border-radius:5px;padding:8px 10px;font-size:12px;color:var(--sanity-text);min-height:56px;line-height:1.5">Green almond romesco, lemon aioli & rucola</div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Price <span class="field-req">Required</span></div>
+              <div class="field-input-row">
+                <input class="field-input" value="24">
+                <select class="field-select"><option>AUD</option></select>
+              </div>
+              <div class="price-display">$24.00</div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Dietary tags</div>
+              <div class="tag-row">
+                <div class="tag active"><div class="tag-check">✓</div>GR — Gluten Reduced</div>
+                <div class="tag"><div class="tag-check"></div>V — Vegetarian</div>
+                <div class="tag"><div class="tag-check"></div>VG — Vegan</div>
+                <div class="tag"><div class="tag-check"></div>GF — Gluten Free</div>
+              </div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Optional note</div>
+              <input class="field-input" placeholder='e.g. "add prosciutto +$9"' value="">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Menu section</div>
+              <select class="field-select"><option>Small Plates</option></select>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Visible on menu</div>
+              <div style="display:flex;align-items:center;gap:10px;padding:8px 0">
+                <div class="hours-toggle"></div>
+                <span style="font-size:12px;color:var(--sanity-text)">Currently visible</span>
+              </div>
+            </div>
+          </div>
+          <div class="editor-footer">
+            <button class="btn-discard">Discard</button>
+            <button class="btn-publish">Publish changes</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: EVENTS + SCREEN 3: HOURS (side by side) -->
+  <div style="display:flex;gap:32px;flex-wrap:wrap;justify-content:center">
+
+    <!-- SCREEN 2: EVENTS -->
+    <div>
+      <p class="screen-label">Screen 2 of 3 — What's On Events</p>
+      <div class="laptop-frame">
+        <div class="desktop-bar">
+          <div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div>
+          <div class="url-bar"><span class="url-text">volpino.sanity.studio/structure/events</span></div>
+        </div>
+        <div class="laptop-screen">
+          <div class="sidebar" style="width:180px">
+            <div class="sidebar-top">
+              <div class="sidebar-project">
+                <div class="project-icon"><svg id="Layer_1" style="height:12px;width:auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 313.74 39.77">
+  <!-- Generator: Adobe Illustrator 29.8.5, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st2 {
+        clip-path: url(#clippath-2);
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+  </defs>
+  <polygon class="st3" points="28.62 1.99 17.92 27.05 7.14 1.99 1.98 1.99 17.42 37.83 18.58 37.83 33.72 1.99 28.62 1.99"/>
+  <g class="st4">
+    <path class="st3" d="M70.02,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M69.81,1.48c5.53,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.9-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+  <polygon class="st3" points="110.05 1.99 110.05 37.67 131.31 37.67 131.31 33.03 115.18 33.03 115.18 1.99 110.05 1.99"/>
+  <g class="st1">
+    <path class="st3" d="M160.56,6.49h-5.31v11.16h5.62c2.08,0,3.69-.49,4.82-1.47,1.13-.98,1.69-2.38,1.69-4.2,0-3.66-2.27-5.49-6.82-5.49M150.1,37.67V1.94h11.36c3.42,0,6.14.92,8.18,2.76,2.03,1.84,3.05,4.31,3.05,7.41,0,2.07-.52,3.91-1.57,5.52-1.04,1.6-2.47,2.76-4.28,3.48-1.81.73-4.41,1.09-7.79,1.09h-3.8v15.48h-5.15Z"/>
+  </g>
+  <rect class="st3" x="191.79" y="1.99" width="5.13" height="35.68"/>
+  <polygon class="st3" points="247.91 1.99 247.91 29.7 223.76 1.99 219.61 1.99 219.61 37.67 224.43 37.67 224.43 10.19 248.38 37.67 252.79 37.67 252.79 1.99 247.91 1.99"/>
+  <g class="st2">
+    <path class="st3" d="M292.82,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10.01-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M292.62,1.48c5.54,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.89-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+</svg></div>
+                <div>
+                  <div class="project-name">Volpino</div>
+                  <div class="project-org">volpino.com.au</div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-nav">
+              <div class="nav-section-label">Content</div>
+              <div class="nav-item"><div class="nav-icon">☰</div><div class="nav-label">Menu</div></div>
+              <div class="nav-item active"><div class="nav-icon">★</div><div class="nav-label">What's On</div><div class="nav-badge">3</div></div>
+              <div class="nav-item"><div class="nav-icon">◷</div><div class="nav-label">Opening Hours</div></div>
+              <div class="nav-item"><div class="nav-icon">✦</div><div class="nav-label">Specials Board</div></div>
+              <div class="nav-item"><div class="nav-icon">⚙</div><div class="nav-label">Settings</div></div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content-header">
+              <div>
+                <div class="content-title">What's On</div>
+                <div class="content-subtitle">3 upcoming events</div>
+              </div>
+              <button class="btn-primary">+ New Event</button>
+            </div>
+            <div class="content-body">
+
+              <div class="event-card-editor active">
+                <div class="event-img-placeholder">
+                  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a2a22,#0a1a14);display:flex;align-items:center;justify-content:center">
+                    <span style="font-size:11px;color:rgba(76,175,138,0.6);font-style:italic">Pasta Night — image uploaded</span>
+                  </div>
+                </div>
+                <div class="event-card-meta">
+                  <div class="event-card-date">Friday 18 April 2026</div>
+                  <div class="event-card-title">House-made Pasta Tasting</div>
+                  <div class="event-card-status">
+                    <span class="status-pill status-published">Published</span>
+                    <span style="font-size:9px;color:var(--sanity-muted)">Bookings: Essential</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-card-editor">
+                <div class="event-img-placeholder">
+                  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a1a2a,#0a0a1a);display:flex;align-items:center;justify-content:center">
+                    <span style="font-size:11px;color:rgba(91,156,246,0.5);font-style:italic">Wine Wednesday</span>
+                  </div>
+                </div>
+                <div class="event-card-meta">
+                  <div class="event-card-date">Every Wednesday</div>
+                  <div class="event-card-title">Wine & Aperitivo Evening</div>
+                  <div class="event-card-status">
+                    <span class="status-pill status-published">Published</span>
+                    <span style="font-size:9px;color:var(--sanity-muted)">Recurring</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-card-editor">
+                <div class="event-img-placeholder">
+                  <div style="position:absolute;inset:0;background:var(--sanity-panel);display:flex;flex-direction:column;align-items:center;justify-content:center">
+                    <span style="font-size:18px;color:var(--sanity-muted)">+</span>
+                    <span class="event-img-label">Upload image</span>
+                    <span class="upload-hint">Drag & drop or click to browse</span>
+                  </div>
+                </div>
+                <div class="event-card-meta">
+                  <div class="event-card-date">Saturday 3 May 2026</div>
+                  <div class="event-card-title">Seafood Night</div>
+                  <div class="event-card-status">
+                    <span class="status-pill status-draft">Draft</span>
+                    <span style="font-size:9px;color:var(--sanity-muted)">$55pp</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="note-box">Add a new event in under 2 minutes. Title, date, description, price, image — then publish.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCREEN 3: HOURS -->
+    <div>
+      <p class="screen-label">Screen 3 of 3 — Opening Hours</p>
+      <div class="laptop-frame">
+        <div class="desktop-bar">
+          <div class="dot dr"></div><div class="dot dy"></div><div class="dot dg"></div>
+          <div class="url-bar"><span class="url-text">volpino.sanity.studio/structure/hours</span></div>
+        </div>
+        <div class="laptop-screen">
+          <div class="sidebar" style="width:180px">
+            <div class="sidebar-top">
+              <div class="sidebar-project">
+                <div class="project-icon"><svg id="Layer_1" style="height:12px;width:auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 313.74 39.77">
+  <!-- Generator: Adobe Illustrator 29.8.5, SVG Export Plug-In . SVG Version: 2.1.1 Build 2)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st2 {
+        clip-path: url(#clippath-2);
+      }
+
+      .st3 {
+        fill: #fff;
+      }
+
+      .st4 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="st0" x="1.98" y="1.48" width="309.98" height="36.6"/>
+    </clipPath>
+  </defs>
+  <polygon class="st3" points="28.62 1.99 17.92 27.05 7.14 1.99 1.98 1.99 17.42 37.83 18.58 37.83 33.72 1.99 28.62 1.99"/>
+  <g class="st4">
+    <path class="st3" d="M70.02,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M69.81,1.48c5.53,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.9-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+  <polygon class="st3" points="110.05 1.99 110.05 37.67 131.31 37.67 131.31 33.03 115.18 33.03 115.18 1.99 110.05 1.99"/>
+  <g class="st1">
+    <path class="st3" d="M160.56,6.49h-5.31v11.16h5.62c2.08,0,3.69-.49,4.82-1.47,1.13-.98,1.69-2.38,1.69-4.2,0-3.66-2.27-5.49-6.82-5.49M150.1,37.67V1.94h11.36c3.42,0,6.14.92,8.18,2.76,2.03,1.84,3.05,4.31,3.05,7.41,0,2.07-.52,3.91-1.57,5.52-1.04,1.6-2.47,2.76-4.28,3.48-1.81.73-4.41,1.09-7.79,1.09h-3.8v15.48h-5.15Z"/>
+  </g>
+  <rect class="st3" x="191.79" y="1.99" width="5.13" height="35.68"/>
+  <polygon class="st3" points="247.91 1.99 247.91 29.7 223.76 1.99 219.61 1.99 219.61 37.67 224.43 37.67 224.43 10.19 248.38 37.67 252.79 37.67 252.79 1.99 247.91 1.99"/>
+  <g class="st2">
+    <path class="st3" d="M292.82,6.34c-4.1,0-7.47,1.28-10.11,3.83-2.64,2.56-3.96,5.82-3.96,9.78s1.32,7.05,3.97,9.6c2.65,2.55,5.96,3.83,9.94,3.83s7.33-1.3,10.01-3.91c2.67-2.6,4.01-5.85,4.01-9.73s-1.34-6.96-4.01-9.54c-2.67-2.58-5.96-3.87-9.85-3.87M292.62,1.48c5.54,0,10.14,1.75,13.82,5.24,3.68,3.49,5.52,7.87,5.52,13.13s-1.86,9.61-5.57,13.06c-3.72,3.45-8.4,5.17-14.05,5.17s-9.89-1.73-13.49-5.17c-3.6-3.45-5.39-7.77-5.39-12.96s1.81-9.74,5.43-13.23c3.62-3.49,8.2-5.24,13.73-5.24"/>
+  </g>
+</svg></div>
+                <div>
+                  <div class="project-name">Volpino</div>
+                  <div class="project-org">volpino.com.au</div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-nav">
+              <div class="nav-section-label">Content</div>
+              <div class="nav-item"><div class="nav-icon">☰</div><div class="nav-label">Menu</div></div>
+              <div class="nav-item"><div class="nav-icon">★</div><div class="nav-label">What's On</div></div>
+              <div class="nav-item active"><div class="nav-icon">◷</div><div class="nav-label">Opening Hours</div></div>
+              <div class="nav-item"><div class="nav-icon">✦</div><div class="nav-label">Specials Board</div></div>
+              <div class="nav-item"><div class="nav-icon">⚙</div><div class="nav-label">Settings</div></div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="content-header">
+              <div>
+                <div class="content-title">Opening Hours</div>
+                <div class="content-subtitle">Updates live on the website instantly</div>
+              </div>
+              <button class="btn-primary">Save changes</button>
+            </div>
+            <div class="content-body">
+
+              <div class="note-box">Changes publish immediately. The website header and footer update automatically.</div>
+
+              <div style="margin-bottom:8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sanity-muted)">Regular Hours</div>
+
+              <div class="hours-day">
+                <div class="hours-day-name">Monday</div>
+                <input class="field-input" value="4:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Tuesday</div>
+                <input class="field-input" value="4:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Wednesday</div>
+                <input class="field-input" value="4:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Thursday</div>
+                <input class="field-input" value="4:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Friday</div>
+                <input class="field-input" value="12:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Saturday</div>
+                <input class="field-input" value="12:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+              <div class="hours-day">
+                <div class="hours-day-name">Sunday</div>
+                <input class="field-input" value="12:00 PM" style="font-size:11px;padding:5px 8px">
+                <input class="field-input" value="Late" style="font-size:11px;padding:5px 8px">
+                <div class="hours-toggle"></div>
+              </div>
+
+              <div class="divider"></div>
+              <div style="margin-bottom:8px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--sanity-muted)">Special Hours / Notes</div>
+
+              <div style="background:var(--sanity-bg);border:1px solid var(--sanity-border);border-radius:5px;padding:10px 12px;font-size:12px;color:var(--sanity-muted);margin-bottom:8px">
+                e.g. "Closed Good Friday · Easter Saturday 12–8pm"
+              </div>
+              <div style="font-size:10px;color:var(--sanity-muted)">Leave blank if no special notes. Shows beneath regular hours on the site.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:36px;font-size:10px;color:#333;letter-spacing:0.1em">
+    Sanity Studio · Free plan · volpino.sanity.studio · No monthly cost
+  </div>
+
+</div>
+</body>
+</html>

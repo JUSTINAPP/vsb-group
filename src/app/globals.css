@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand colours */
+  --color-sky: #2A9AB8;
+  --color-sky-dark: #1A5C7A;
+  --color-sky-light: #E0EEF4;
+  --color-navy: #1A5C7A;
+  --color-navy-dark: #0E3D52;
+  --color-gold: #D4A017;
+  --color-gold-light: #F0E0B0;
+  --color-coral: #E07050;
+  --color-coral-dark: #B83228;
+  --color-seafoam: #7EC4C4;
+  --color-sage: #8A9A88;
+  --color-slate: #5A6A68;
+  --color-lime: #D4D830;
+  --color-cyan: #2AB8E0;
+  --color-sand: #F0ECE4;
+  --color-charcoal: #1A1916;
+  --color-warm: #6B6459;
+  --color-cream: #FAF8F3;
+
+  /* Fonts */
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jost), system-ui, sans-serif;
+  --font-cormorant: var(--font-cormorant);
+  --font-jost: var(--font-jost);
+}
+
+:root {
+  --sky:        #2A9AB8;
+  --sky-dark:   #1A5C7A;
+  --sky-light:  #E0EEF4;
+  --gold:       #D4A017;
+  --coral:      #E07050;
+  --coral-dark: #B83228;
+  --charcoal:   #1A1916;
+  --warm:       #6B6459;
+  --cream:      #FAF8F3;
+  --sand:       #F0ECE4;
+}
+
+body {
+  font-family: var(--font-jost), sans-serif;
+  font-weight: 300;
+  background-color: #FAF8F3;
+  color: #1A1916;
+  overflow-x: hidden;
+}
+
+/* Scrollbar hide utility */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Pulse animation for info bar */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+/* Ken Burns zoom for hero slideshow */
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to   { transform: scale(1.08); }
+}
+.animate-kenburns {
+  animation: kenburns 6s ease-out forwards;
+}
