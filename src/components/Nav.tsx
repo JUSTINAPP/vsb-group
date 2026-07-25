@@ -20,7 +20,7 @@ export default function Nav() {
         <div className="max-w-7xl mx-auto px-[22px] min-[985px]:px-10 h-[66px] min-[985px]:h-[72px] flex items-center justify-between">
           {/* Logo */}
           <Link href="/" aria-label="VSB Group — home" onClick={() => setOpen(false)}>
-            <Logo variant="white" className="h-9" />
+            <Logo variant="white" className="h-[47px]" />
           </Link>
 
           {/* Desktop nav links */}

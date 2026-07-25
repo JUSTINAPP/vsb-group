@@ -52,14 +52,6 @@ export default function HomePage() {
                 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.85) 100%)',
             }}
           />
-          <div
-            aria-hidden="true"
-            className="absolute -top-4 -right-4 font-display font-bold text-ink/[0.025] leading-none whitespace-nowrap pointer-events-none select-none"
-            style={{ fontSize: '280px' }}
-          >
-            VSB
-          </div>
-
           <div className="relative z-10 w-full p-6 md:p-16">
             <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-8 md:mb-10">
               <LogoDevice size="sm" />
@@ -180,12 +172,16 @@ export default function HomePage() {
                 className="relative overflow-hidden aspect-[3/4] flex flex-col items-center justify-center text-center p-8"
                 style={{ background: '#141414' }}
               >
+                <Image
+                  src="/assets/bay-gather-card-02-1080x816.jpg"
+                  alt="Bay & Gather Catering"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div
                   className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      'repeating-linear-gradient(45deg, rgba(240,236,228,0.015) 0px, rgba(240,236,228,0.015) 1px, transparent 1px, transparent 9px)',
-                  }}
+                  style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 100%)' }}
                 />
                 <div className="relative z-10 flex flex-col items-center">
                   <LogoDevice size="lg" showBar={false} />

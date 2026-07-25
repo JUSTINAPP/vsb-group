@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-12">
           {/* Logo + tagline */}
           <div>
-            <Logo variant="white" className="h-8 mb-4" />
+            <Logo variant="white" className="h-[42px] mb-4" />
             <p className="font-sans font-light text-[12px] text-ink/45 max-w-[240px]">
               A collection of hospitality venues across Victoria.
             </p>
