@@ -5,12 +5,9 @@ import Image from 'next/image'
 
 const slides = [
   '/assets/South-Beach-Project-Exterior-05-2400x1300-1.jpg',
-  '/assets/southbeach_function_1080x1080.jpg',
-  '/assets/SOUTH-BEACH_01-1500x1000-1.jpg',
-  '/assets/south-beach-food-2_1080x1080.jpg',
-  '/assets/southbeach_wedding_1080x1080.jpg',
-  '/assets/SouthBeach_function1.jpg',
-  '/assets/southbeach_function3_1080x1080.jpg',
+  '/assets/volpino-hero-2.jpg',
+  '/assets/South-Beach-Sunset_1500x1000.jpg',
+  '/assets/South-Beach-Dusk_1500x1000.jpg',
 ]
 
 export default function HeroSlideshow() {

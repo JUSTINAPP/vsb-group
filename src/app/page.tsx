@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
+import HeroSlideshow from '@/components/HeroSlideshow'
 import { LogoDevice } from '@/components/LogoDevice'
 
 export const metadata: Metadata = {
@@ -43,6 +44,14 @@ export default function HomePage() {
       <main>
         {/* ── HERO ── */}
         <section className="relative h-screen min-h-[640px] bg-void overflow-hidden flex items-end">
+          <HeroSlideshow />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.65) 45%, rgba(0,0,0,0.85) 100%)',
+            }}
+          />
           <div
             aria-hidden="true"
             className="absolute -top-4 -right-4 font-display font-bold text-ink/[0.025] leading-none whitespace-nowrap pointer-events-none select-none"
@@ -51,8 +60,8 @@ export default function HomePage() {
             VSB
           </div>
 
-          <div className="relative z-10 w-full p-8 md:p-16">
-            <div className="flex items-center gap-4 mb-10">
+          <div className="relative z-10 w-full p-6 md:p-16">
+            <div className="flex flex-wrap items-center gap-3 md:gap-4 mb-8 md:mb-10">
               <LogoDevice size="sm" />
               <div style={{ width: 2, height: 48, background: '#3DBDB5' }} />
               <p className="text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal">
@@ -61,8 +70,8 @@ export default function HomePage() {
             </div>
 
             <h1
-              className="font-display font-semibold uppercase text-ink leading-[0.95] tracking-[0.01em]"
-              style={{ fontSize: 'clamp(64px, 9vw, 120px)' }}
+              className="font-display font-semibold uppercase text-ink leading-[0.95] tracking-[0.01em] break-words"
+              style={{ fontSize: 'clamp(48px, 12vw, 120px)' }}
             >
               Crafting <span className="text-ink/30">remarkable</span> experiences
             </h1>
@@ -72,7 +81,7 @@ export default function HomePage() {
               atmosphere and hospitality done well.
             </p>
 
-            <div className="flex flex-wrap items-center gap-8 mt-10">
+            <div className="flex flex-wrap items-center gap-4 md:gap-8 mt-8 md:mt-10">
               <a
                 href="#venues"
                 className="bg-ink text-void px-8 py-[14px] text-[11px] font-sans font-semibold uppercase tracking-[0.12em] hover:opacity-90 transition-opacity"
@@ -185,8 +194,8 @@ export default function HomePage() {
         </section>
 
         {/* ── ABOUT SPLIT ── */}
-        <section className="grid grid-cols-1 md:grid-cols-2 min-h-[560px] md:min-h-[640px]">
-          <div className="relative h-[360px] md:h-auto">
+        <section className="grid grid-cols-1 md:grid-cols-2 md:min-h-[640px]">
+          <div className="relative h-[280px] md:h-auto">
             <Image
               src="/assets/south-beach-about-05.jpg"
               alt="The team behind VSB Group"
@@ -196,7 +205,7 @@ export default function HomePage() {
             />
           </div>
 
-          <div className="bg-void flex flex-col justify-center py-20 px-8 md:px-16">
+          <div className="bg-void flex flex-col justify-center py-12 md:py-20 px-6 md:px-16">
             <p className="section-label text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal mb-4">
               The Group
             </p>
@@ -229,7 +238,7 @@ export default function HomePage() {
 
             <div className="grid md:grid-cols-3 gap-[2px] mt-14">
               {VALUES.map((v, i) => (
-                <div key={v.title} className="bg-[#161616] px-10 py-12">
+                <div key={v.title} className="bg-[#161616] px-8 py-10 md:px-10 md:py-12">
                   <p className="font-display font-bold text-[56px] text-ink/5 leading-none mb-4">
                     {String(i + 1).padStart(2, '0')}
                   </p>
@@ -243,7 +252,7 @@ export default function HomePage() {
 
         {/* ── CTA BANNER ── */}
         <section className="bg-ink text-void py-16 px-6 md:py-20 md:px-12">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div className="max-w-7xl mx-auto flex flex-col items-center text-center md:flex-row md:items-center md:text-left justify-between gap-8">
             <h2
               className="font-display font-semibold uppercase leading-[0.95]"
               style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}

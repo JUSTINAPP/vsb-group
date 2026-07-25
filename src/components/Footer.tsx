@@ -20,8 +20,8 @@ const labelClass = 'text-[10px] tracking-[0.2em] uppercase text-ink/40 font-sans
 export default function Footer() {
   return (
     <footer className="bg-void border-t border-ink/8">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-12 pb-8 md:pt-16 md:pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr_1fr] gap-10 md:gap-12">
           {/* Logo + tagline */}
           <div>
             <Logo variant="white" className="h-8 mb-4" />
@@ -72,7 +72,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 pt-6 border-t border-ink/8 flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-3">
+        <div className="mt-10 md:mt-14 pt-6 border-t border-ink/8 flex flex-col-reverse md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-[11px] text-ink/25 font-sans font-light">
             © {new Date().getFullYear()} VSB Group. All rights reserved.
           </p>

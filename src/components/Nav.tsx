@@ -40,10 +40,9 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <Link
               href="/bookings"
-              className="bg-ink text-void px-5 py-[10px] text-[11px] font-sans font-semibold tracking-[0.15em] uppercase transition-opacity hover:opacity-90"
+              className="hidden min-[985px]:inline-block bg-ink text-void px-5 py-[10px] text-[11px] font-sans font-semibold tracking-[0.15em] uppercase transition-opacity hover:opacity-90"
             >
-              <span className="hidden min-[985px]:inline">Book Now</span>
-              <span className="min-[985px]:hidden">Book</span>
+              Book Now
             </Link>
             {/* Hamburger */}
             <button
