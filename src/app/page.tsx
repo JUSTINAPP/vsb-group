@@ -117,11 +117,17 @@ export default function HomePage() {
                 className="group relative overflow-hidden aspect-[3/4] block"
                 style={{ background: '#1c1510' }}
               >
+                <Image
+                  src="/assets/volpino-card-1080x720.jpg"
+                  alt="Volpino Pizzeria & Wine Bar"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(180,120,40,0.1) 0%, transparent 70%)' }}
+                  style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 100%)' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="relative z-10 h-full flex flex-col justify-end p-8">
                   <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mb-3">
                     Italian · Wine Bar
@@ -144,11 +150,17 @@ export default function HomePage() {
                 className="group relative overflow-hidden aspect-[3/4] block"
                 style={{ background: '#0f1418' }}
               >
+                <Image
+                  src="/assets/south-beach-card-1080x744.jpg"
+                  alt="South Beach Restaurant"
+                  fill
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'radial-gradient(ellipse at 70% 30%, rgba(80,130,160,0.08) 0%, transparent 70%)' }}
+                  style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.75) 100%)' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 <div className="relative z-10 h-full flex flex-col justify-end p-8">
                   <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mb-3">
                     Coastal · Restaurant &amp; Bar
@@ -178,14 +190,14 @@ export default function HomePage() {
                 <div className="relative z-10 flex flex-col items-center">
                   <LogoDevice size="lg" showBar={false} />
                   <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mt-8 mb-3">
-                    Coming Soon
+                    Catering &amp; Events
                   </p>
                   <h3 className="font-display font-semibold uppercase text-[28px] text-ink/70 leading-none mb-2">
-                    New Venue
+                    Bay &amp; Gather Catering
                   </h3>
-                  <p className="text-[11px] text-ink/45 font-sans font-normal mb-6">To be announced</p>
+                  <p className="text-[11px] text-ink/45 font-sans font-normal mb-6">Mornington Peninsula</p>
                   <span className="text-[10px] uppercase tracking-[0.15em] text-ink/25 font-sans font-normal">
-                    Stay tuned
+                    Coming Soon
                   </span>
                 </div>
               </div>
