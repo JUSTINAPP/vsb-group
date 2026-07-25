@@ -81,7 +81,7 @@ export default function AboutPage() {
               </div>
               <div className="relative mt-10 md:mt-0 h-[280px] md:h-[460px] rounded-[4px] overflow-hidden">
                 <Image
-                  src="/assets/SOUTH-BEACH_2400x1300_DSC_9232.jpg"
+                  src="/assets/SOUTH-BEACH-09-1500x1000-1.jpg"
                   alt="VSB Group dining"
                   fill
                   className="object-cover object-center"
