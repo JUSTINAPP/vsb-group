@@ -23,7 +23,7 @@ const VENUES = [
     tag: 'Pizzeria & Wine Bar',
     desc: 'Check Volpino\'s website for upcoming events, wine dinners, specials and seasonal happenings.',
     cta: "What's On at Volpino",
-    href: 'https://volpino.com.au',
+    href: 'https://www.volpino.com.au/whats-on',
     bg: null,
   },
   {

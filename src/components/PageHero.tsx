@@ -5,9 +5,10 @@ interface PageHeroProps {
   title: string
   subtitle?: string
   image?: string
+  imagePosition?: 'center' | 'top'
 }
 
-export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroProps) {
+export default function PageHero({ eyebrow, title, subtitle, image, imagePosition = 'center' }: PageHeroProps) {
   return (
     <div className="relative overflow-hidden bg-charcoal">
       {image && (
@@ -16,7 +17,7 @@ export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroPr
           alt=""
           fill
           priority
-          className="object-cover object-center"
+          className={imagePosition === 'top' ? 'object-cover object-top' : 'object-cover object-center'}
           sizes="100vw"
           aria-hidden="true"
         />
