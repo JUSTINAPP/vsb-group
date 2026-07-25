@@ -37,9 +37,9 @@ export default function FunctionsEnquiryForm() {
 
   if (state.success) {
     return (
-      <div className="bg-white/10 border border-white/20 rounded-[4px] px-5 py-6 text-white font-jost font-light text-[14px]">
-        <p className="font-cormorant text-[22px] font-light mb-2">Thank you for your enquiry!</p>
-        <p className="text-white/70 text-[13px] font-jost font-light">
+      <div className="bg-white/10 border border-white/20 rounded-[4px] px-5 py-6 text-white font-sans font-light text-[14px]">
+        <p className="font-display uppercase tracking-tight text-[22px] font-semibold mb-2">Thank you for your enquiry!</p>
+        <p className="text-white/70 text-[13px] font-sans font-light">
           We&apos;ll be in touch within one business day to discuss your event.
         </p>
       </div>
@@ -49,12 +49,12 @@ export default function FunctionsEnquiryForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       {(localError ?? state.error) && (
-        <p className="text-[12px] text-red-300 font-jost">{localError ?? state.error}</p>
+        <p className="text-[12px] text-red-300 font-sans">{localError ?? state.error}</p>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div>
-          <label htmlFor="fn-name" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-name" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Name <span className="text-white/30">*</span>
           </label>
           <input
@@ -63,11 +63,11 @@ export default function FunctionsEnquiryForm() {
             name="name"
             required
             placeholder="Your name"
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light placeholder:text-white/28 outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light placeholder:text-white/28 outline-none focus:border-white/40"
           />
         </div>
         <div>
-          <label htmlFor="fn-email" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-email" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Email <span className="text-white/30">*</span>
           </label>
           <input
@@ -76,11 +76,11 @@ export default function FunctionsEnquiryForm() {
             name="email"
             required
             placeholder="your@email.com"
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light placeholder:text-white/28 outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light placeholder:text-white/28 outline-none focus:border-white/40"
           />
         </div>
         <div>
-          <label htmlFor="fn-phone" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-phone" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Phone
           </label>
           <input
@@ -88,11 +88,11 @@ export default function FunctionsEnquiryForm() {
             id="fn-phone"
             name="phone"
             placeholder="0400 000 000"
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light placeholder:text-white/28 outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light placeholder:text-white/28 outline-none focus:border-white/40"
           />
         </div>
         <div>
-          <label htmlFor="fn-date" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-date" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Preferred Date <span className="text-white/30">*</span>
           </label>
           <input
@@ -100,18 +100,18 @@ export default function FunctionsEnquiryForm() {
             id="fn-date"
             name="date"
             required
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light outline-none focus:border-white/40"
           />
         </div>
         <div>
-          <label htmlFor="fn-guests" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-guests" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Number of Guests <span className="text-white/30">*</span>
           </label>
           <select
             id="fn-guests"
             name="guests"
             required
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light outline-none focus:border-white/40"
           >
             <option value="">Select guests</option>
             {['10–15', '16–20', '21–30', '31–40', '40+'].map((v) => (
@@ -120,13 +120,13 @@ export default function FunctionsEnquiryForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="fn-occasion" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+          <label htmlFor="fn-occasion" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
             Occasion
           </label>
           <select
             id="fn-occasion"
             name="occasion"
-            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light outline-none focus:border-white/40"
+            className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light outline-none focus:border-white/40"
           >
             <option value="">Select occasion</option>
             {['Birthday', 'Anniversary', 'Corporate', 'Wedding', 'Celebration', 'Other'].map((v) => (
@@ -137,7 +137,7 @@ export default function FunctionsEnquiryForm() {
       </div>
 
       <div>
-        <label htmlFor="fn-message" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-jost font-normal block mb-[5px]">
+        <label htmlFor="fn-message" className="text-[9px] tracking-[0.16em] uppercase text-white/50 font-sans font-normal block mb-[5px]">
           Message
         </label>
         <textarea
@@ -145,7 +145,7 @@ export default function FunctionsEnquiryForm() {
           name="message"
           rows={4}
           placeholder="Tell us about your event, dietary requirements or any questions…"
-          className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-jost font-light placeholder:text-white/28 outline-none focus:border-white/40 resize-vertical"
+          className="w-full bg-white/8 border border-white/15 rounded-[3px] px-[13px] py-[11px] text-white text-[13px] font-sans font-light placeholder:text-white/28 outline-none focus:border-white/40 resize-vertical"
         />
       </div>
 
@@ -153,7 +153,7 @@ export default function FunctionsEnquiryForm() {
         label="Send Enquiry"
         pendingLabel="Sending…"
         isPending={isPending}
-        className="bg-sky text-white py-[15px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal w-full text-center mt-2 hover:bg-sky-dark transition-colors"
+        className="bg-sky text-white py-[15px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-sans font-normal w-full text-center mt-2 hover:bg-sky-dark transition-colors"
       />
     </form>
   )

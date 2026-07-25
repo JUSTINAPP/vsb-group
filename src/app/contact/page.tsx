@@ -6,7 +6,6 @@ import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
 import InfoCard from '@/components/InfoCard'
 import ContactForm from '@/components/ContactForm'
-import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
   title: { absolute: 'Contact | VSB Group' },
@@ -39,17 +38,17 @@ export default function ContactPage() {
 
               {/* Left: info */}
               <div>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-sans font-normal mb-[10px]">
                   Group enquiries
                 </p>
-                <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-3 tracking-[0.02em]">
+                <h2 className="font-display uppercase tracking-tight font-semibold text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-3 tracking-[0.02em]">
                   Reach out to VSB Group
                 </h2>
-                <p className="text-[13px] text-warm font-jost font-light leading-[1.8] mb-6">
+                <p className="text-[13px] text-warm font-sans font-light leading-[1.8] mb-6">
                   For general enquiries about VSB Group — including business, partnerships, and
                   media — get in touch using the form or via email.
                 </p>
-                <p className="text-[13px] text-warm font-jost font-light leading-[1.8] mb-8">
+                <p className="text-[13px] text-warm font-sans font-light leading-[1.8] mb-8">
                   For venue-specific bookings, events and dining enquiries, please contact each
                   venue directly via the links below.
                 </p>
@@ -71,31 +70,31 @@ export default function ContactPage() {
 
                 {/* Venue contacts */}
                 <div className="space-y-3">
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-jost font-normal">
+                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-sans font-normal">
                     Venue Contacts
                   </p>
                   <div className="bg-cream rounded-[4px] border-l-2 border-gold px-[18px] py-4">
-                    <p className="text-[11px] font-jost font-normal text-charcoal mb-1">
+                    <p className="text-[11px] font-sans font-normal text-charcoal mb-1">
                       Volpino Pizzeria &amp; Wine Bar
                     </p>
                     <a
                       href="https://volpino.com.au"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] text-gold font-jost font-light hover:opacity-70 transition-opacity"
+                      className="text-[11px] text-gold font-sans font-light hover:opacity-70 transition-opacity"
                     >
                       volpino.com.au ↗
                     </a>
                   </div>
                   <div className="bg-cream rounded-[4px] border-l-2 border-gold px-[18px] py-4">
-                    <p className="text-[11px] font-jost font-normal text-charcoal mb-1">
+                    <p className="text-[11px] font-sans font-normal text-charcoal mb-1">
                       South Beach Restaurant
                     </p>
                     <a
                       href="https://sbmm.com.au/contact"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] text-gold font-jost font-light hover:opacity-70 transition-opacity"
+                      className="text-[11px] text-gold font-sans font-light hover:opacity-70 transition-opacity"
                     >
                       sbmm.com.au/contact ↗
                     </a>
@@ -105,7 +104,7 @@ export default function ContactPage() {
                 <div className="mt-8">
                   <Link
                     href="/bookings"
-                    className="text-[11px] tracking-[0.12em] uppercase text-gold font-jost font-normal border border-gold px-[22px] py-[12px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
+                    className="text-[11px] tracking-[0.12em] uppercase text-gold font-sans font-normal border border-gold px-[22px] py-[12px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
                   >
                     Book a Table →
                   </Link>
@@ -114,13 +113,13 @@ export default function ContactPage() {
 
               {/* Right: form */}
               <div className="mt-12 md:mt-0">
-                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-sans font-normal mb-[10px]">
                   Send a Message
                 </p>
-                <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
+                <h2 className="font-display uppercase tracking-tight font-semibold text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
                   Get in touch
                 </h2>
-                <p className="font-cormorant italic font-light text-[18px] text-warm mb-8">
+                <p className="font-sans font-light text-[18px] text-warm mb-8">
                   We&apos;ll reply within one business day
                 </p>
                 <ContactForm />
@@ -129,8 +128,6 @@ export default function ContactPage() {
             </div>
           </div>
         </section>
-
-        <ColourDeviceStrip />
       </main>
       <Footer />
       <BottomNav />

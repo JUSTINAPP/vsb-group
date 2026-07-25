@@ -2,56 +2,60 @@
 
 @theme inline {
   /* Brand colours */
-  --color-sky: #2A9AB8;
-  --color-sky-dark: #1A5C7A;
-  --color-sky-light: #E0EEF4;
-  --color-navy: #1A5C7A;
-  --color-navy-dark: #0E3D52;
-  --color-gold: #D4A017;
-  --color-gold-light: #F0E0B0;
-  --color-coral: #E07050;
-  --color-coral-dark: #B83228;
-  --color-seafoam: #7EC4C4;
-  --color-sage: #8A9A88;
-  --color-slate: #5A6A68;
-  --color-lime: #D4D830;
-  --color-cyan: #2AB8E0;
-  --color-sand: #F0ECE4;
-  --color-charcoal: #1A1916;
-  --color-warm: #6B6459;
-  --color-cream: #FAF8F3;
+  --color-void: #0d0d0d;
+  --color-ink: #f0ece4;
+  --color-teal: #3dbdb5;
+  --color-gold: #3dbdb5; /* legacy alias — retired, points to teal */
+  --color-sky: #3dbdb5; /* legacy alias — retired, points to teal */
+  --color-sky-light: #a9ded9; /* legacy alias — retired, teal tint */
+  --color-sky-dark: #1f7a73; /* legacy alias — retired, teal shade */
+  --color-charcoal: #1a1916;
+  --color-warm: #6b6459;
+  --color-cream: #faf8f3;
+  --color-sand: #f0ece4;
 
   /* Fonts */
-  --font-display: var(--font-cormorant), Georgia, serif;
-  --font-sans: var(--font-jost), system-ui, sans-serif;
-  --font-cormorant: var(--font-cormorant);
-  --font-jost: var(--font-jost);
+  --font-display: var(--font-barlow-condensed), sans-serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-barlow-condensed: var(--font-barlow-condensed);
+  --font-dm-sans: var(--font-dm-sans);
 }
 
 :root {
-  --sky:        #2A9AB8;
-  --sky-dark:   #1A5C7A;
-  --sky-light:  #E0EEF4;
-  --gold:       #D4A017;
-  --coral:      #E07050;
-  --coral-dark: #B83228;
-  --charcoal:   #1A1916;
-  --warm:       #6B6459;
-  --cream:      #FAF8F3;
-  --sand:       #F0ECE4;
+  --void:     #0d0d0d;
+  --ink:      #f0ece4;
+  --teal:     #3dbdb5;
+  --charcoal: #1a1916;
+  --warm:     #6b6459;
+  --cream:    #faf8f3;
+  --sand:     #f0ece4;
 }
 
 body {
-  font-family: var(--font-jost), sans-serif;
+  font-family: var(--font-dm-sans), sans-serif;
   font-weight: 300;
-  background-color: #FAF8F3;
-  color: #1A1916;
+  background-color: #faf8f3;
+  color: #1a1916;
   overflow-x: hidden;
 }
 
 /* Scrollbar hide utility */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Section eyebrow label — short teal rule after the text */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::after {
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: #3dbdb5;
+}
 
 /* Pulse animation for info bar */
 @keyframes pulse-dot {

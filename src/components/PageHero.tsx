@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import { ColourDeviceStrip } from './ColourDeviceStrip'
 
 interface PageHeroProps {
   eyebrow: string
@@ -31,20 +30,19 @@ export default function PageHero({ eyebrow, title, subtitle, image }: PageHeroPr
       />
       <div className="relative z-10 pt-[52px] pb-[40px] md:pt-[72px] md:pb-[56px]">
         <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-          <p className="text-[10px] tracking-[0.22em] uppercase text-white/55 font-jost font-light mb-[10px]">
+          <p className="text-[10px] tracking-[0.22em] uppercase text-white/55 font-sans font-light mb-[10px]">
             {eyebrow}
           </p>
-          <h1 className="font-cormorant font-light text-[52px] md:text-[72px] leading-[0.95] tracking-[0.04em] text-white mb-[10px]">
+          <h1 className="font-display uppercase font-semibold text-[52px] md:text-[72px] leading-[0.95] tracking-[0.02em] text-white mb-[10px]">
             {title}
           </h1>
           {subtitle && (
-            <p className="font-cormorant italic font-light text-[20px] text-white/85">
+            <p className="font-sans font-light text-[16px] text-white/70">
               {subtitle}
             </p>
           )}
         </div>
       </div>
-      <ColourDeviceStrip height={5} />
     </div>
   )
 }

@@ -23,29 +23,29 @@ export default function ThankYouPage() {
               </svg>
             </div>
 
-            <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-jost font-normal mb-[10px]">
+            <p className="text-[10px] tracking-[0.2em] uppercase text-sky font-sans font-normal mb-[10px]">
               Message received
             </p>
-            <h1 className="font-cormorant font-light text-[48px] md:text-[64px] text-charcoal leading-[0.95] tracking-[0.04em] mb-4">
+            <h1 className="font-display uppercase tracking-tight font-semibold text-[48px] md:text-[64px] text-charcoal leading-[0.95] tracking-[0.04em] mb-4">
               Thank You
             </h1>
-            <p className="font-cormorant italic font-light text-[20px] text-warm mb-6">
+            <p className="font-sans font-light text-[20px] text-warm mb-6">
               We appreciate you getting in touch
             </p>
-            <p className="text-[13px] leading-[1.8] text-warm font-jost font-light mb-10 max-w-md mx-auto">
+            <p className="text-[13px] leading-[1.8] text-warm font-sans font-light mb-10 max-w-md mx-auto">
               Thank you for getting in touch with South Beach Restaurant. We&apos;ll be back to you shortly.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
                 href="/"
-                className="bg-sky text-white py-[14px] px-8 rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal text-center hover:bg-sky-dark transition-colors"
+                className="bg-sky text-white py-[14px] px-8 rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-sans font-normal text-center hover:bg-sky-dark transition-colors"
               >
                 Back to Home
               </Link>
               <Link
                 href="/eat-drink"
-                className="border border-sky text-sky bg-transparent py-[13px] px-8 rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal text-center hover:bg-sky hover:text-white transition-colors"
+                className="border border-sky text-sky bg-transparent py-[13px] px-8 rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-sans font-normal text-center hover:bg-sky hover:text-white transition-colors"
               >
                 View Menu
               </Link>

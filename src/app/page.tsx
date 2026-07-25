@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
-import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
+import { LogoDevice } from '@/components/LogoDevice'
 
 export const metadata: Metadata = {
   title: { absolute: 'VSB Group | Mornington Peninsula Hospitality' },
@@ -20,6 +20,21 @@ export const metadata: Metadata = {
   },
 }
 
+const VALUES = [
+  {
+    title: 'Hospitality First',
+    body: 'Every venue is built around genuine, attentive service — the kind that makes people want to come back.',
+  },
+  {
+    title: 'Venue Character',
+    body: 'Each space has its own identity and point of view, shaped by its location and the people who run it.',
+  },
+  {
+    title: 'People & Place',
+    body: 'We invest in our teams and our neighbourhoods, building venues that belong where they stand.',
+  },
+]
+
 export default function HomePage() {
   return (
     <>
@@ -27,139 +42,141 @@ export default function HomePage() {
 
       <main>
         {/* ── HERO ── */}
-        <section className="relative h-[520px] md:h-[720px] overflow-hidden">
-          <Image
-            src="/assets/South-Beach-Project-Exterior-05-2400x1300-1.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
+        <section className="relative h-screen min-h-[640px] bg-void overflow-hidden flex items-end">
+          <div
             aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/40 to-black/70" />
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
-            <p className="text-[10px] tracking-[0.28em] uppercase text-white/60 font-jost font-light mb-5">
-              Mornington Peninsula, Victoria
-            </p>
-            <h1 className="font-cormorant italic font-light text-[46px] md:text-[84px] tracking-[0.03em] leading-[1] text-white mb-4">
-              Crafted dining.<br className="hidden md:block" /> Distinctive venues.
+            className="absolute -top-4 -right-4 font-display font-bold text-ink/[0.025] leading-none whitespace-nowrap pointer-events-none select-none"
+            style={{ fontSize: '280px' }}
+          >
+            VSB
+          </div>
+
+          <div className="relative z-10 w-full p-8 md:p-16">
+            <div className="flex items-center gap-4 mb-10">
+              <LogoDevice size="sm" />
+              <div style={{ width: 2, height: 48, background: '#3DBDB5' }} />
+              <p className="text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal">
+                Victoria · Hospitality Group
+              </p>
+            </div>
+
+            <h1
+              className="font-display font-semibold uppercase text-ink leading-[0.95] tracking-[0.01em]"
+              style={{ fontSize: 'clamp(64px, 9vw, 120px)' }}
+            >
+              Crafting <span className="text-ink/30">remarkable</span> experiences
             </h1>
-            <div className="w-[44px] h-px bg-white/30 mb-5" />
-            <p className="font-cormorant italic font-light text-[17px] md:text-[20px] text-white/75 mb-8 max-w-lg">
-              VSB Group operates some of the Peninsula&apos;s most celebrated dining experiences
+
+            <p className="font-sans font-light text-[15px] text-ink/55 max-w-[420px] mt-6">
+              A collection of restaurants and venues across Victoria, united by a commitment to food,
+              atmosphere and hospitality done well.
             </p>
-            <div className="flex flex-col md:flex-row gap-[10px] items-center">
+
+            <div className="flex flex-wrap items-center gap-8 mt-10">
               <a
                 href="#venues"
-                className="w-[210px] md:w-auto bg-gold text-charcoal px-[26px] py-[13px] md:py-[14px] md:px-[32px] rounded-[3px] text-[11px] font-normal tracking-[0.12em] uppercase font-jost text-center transition-all hover:opacity-90"
+                className="bg-ink text-void px-8 py-[14px] text-[11px] font-sans font-semibold uppercase tracking-[0.12em] hover:opacity-90 transition-opacity"
               >
                 Our Venues
               </a>
               <Link
-                href="/bookings"
-                className="w-[210px] md:w-auto bg-transparent text-white border border-white/40 px-[26px] py-[12px] md:py-[13px] md:px-[32px] rounded-[3px] text-[11px] font-normal tracking-[0.12em] uppercase font-jost text-center transition-colors hover:bg-white/10"
+                href="/about"
+                className="text-ink text-[11px] font-sans font-medium uppercase tracking-[0.12em] border-b border-ink/20 pb-1 hover:border-ink/50 transition-colors"
               >
-                Book Now
+                Our Story →
               </Link>
             </div>
           </div>
         </section>
 
-        <ColourDeviceStrip />
-
-        {/* ── VENUES ── */}
-        <section id="venues" className="bg-cream py-[52px] md:py-[72px]">
-          <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+        {/* ── VENUE CARDS ── */}
+        <section id="venues" className="bg-[#111111] py-16 px-6 md:py-24 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <p className="section-label text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal mb-4">
               Our Venues
             </p>
-            <h2 className="font-cormorant font-light text-[34px] md:text-[48px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
-              Where to find us
+            <h2 className="font-display font-semibold uppercase text-ink leading-none text-[40px] md:text-[64px]">
+              The Group <span className="text-ink/30">Collection</span>
             </h2>
-            <p className="font-cormorant italic font-light text-[18px] text-warm mb-10">
-              Two venues. One peninsula.
-            </p>
 
-            <div className="grid md:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-3 gap-[2px] mt-14">
               {/* Volpino */}
-              <div className="relative rounded-[4px] overflow-hidden h-[420px] md:h-[500px] flex flex-col justify-end group">
+              <a
+                href="https://volpino.com.au"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden aspect-[3/4] block"
+                style={{ background: '#1c1510' }}
+              >
                 <div
                   className="absolute inset-0"
-                  style={{ background: 'radial-gradient(ellipse at 35% 45%, #3D1A0A 0%, #100702 100%)' }}
+                  style={{ background: 'radial-gradient(ellipse at 30% 40%, rgba(180,120,40,0.1) 0%, transparent 70%)' }}
                 />
-                {/* Decorative texture overlay */}
-                <div className="absolute inset-0 opacity-[0.07]" style={{
-                  backgroundImage: `repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)`,
-                  backgroundSize: '8px 8px',
-                }} />
-                <div className="relative z-10 p-7 pb-8">
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-jost font-light mb-3">
-                    Pizzeria &amp; Wine Bar
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="relative z-10 h-full flex flex-col justify-end p-8">
+                  <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mb-3">
+                    Italian · Wine Bar
                   </p>
-                  <h3 className="font-cormorant italic font-light text-[38px] md:text-[42px] text-white leading-[1] mb-2">
-                    Volpino
+                  <h3 className="font-display font-semibold uppercase text-[28px] text-ink leading-none mb-2">
+                    Volpino Pizzeria
                   </h3>
-                  <p className="font-jost font-light text-[12px] text-white/55 tracking-[0.06em] mb-6">
-                    Mount Martha, VIC
-                  </p>
-                  <a
-                    href="https://volpino.com.au"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block border border-white/40 text-white px-[18px] py-[10px] rounded-[3px] text-[10px] tracking-[0.14em] uppercase font-jost font-light hover:bg-white/10 transition-colors"
-                  >
-                    Visit Volpino ↗
-                  </a>
+                  <p className="text-[11px] text-ink/45 font-sans font-normal mb-6">Mornington Peninsula</p>
+                  <span className="inline-flex w-fit items-center border-l-2 border-transparent group-hover:border-teal pl-3 text-[10px] uppercase tracking-[0.15em] text-ink/45 group-hover:text-teal font-sans font-normal transition-colors">
+                    Visit venue →
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* South Beach */}
-              <div className="relative rounded-[4px] overflow-hidden h-[420px] md:h-[500px] flex flex-col justify-end group">
-                <Image
-                  src="/assets/South-Beach-Summer_1500x1000.jpg"
-                  alt="South Beach Restaurant"
-                  fill
-                  className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+              <a
+                href="https://sbmm.com.au"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden aspect-[3/4] block"
+                style={{ background: '#0f1418' }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{ background: 'radial-gradient(ellipse at 70% 30%, rgba(80,130,160,0.08) 0%, transparent 70%)' }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="relative z-10 p-7 pb-8">
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold font-jost font-light mb-3">
-                    Coastal Restaurant &amp; Bar
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="relative z-10 h-full flex flex-col justify-end p-8">
+                  <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mb-3">
+                    Coastal · Restaurant &amp; Bar
                   </p>
-                  <h3 className="font-cormorant italic font-light text-[38px] md:text-[42px] text-white leading-[1] mb-2">
-                    South Beach
+                  <h3 className="font-display font-semibold uppercase text-[28px] text-ink leading-none mb-2">
+                    South Beach Restaurant
                   </h3>
-                  <p className="font-jost font-light text-[12px] text-white/55 tracking-[0.06em] mb-6">
-                    Mount Martha, VIC
-                  </p>
-                  <a
-                    href="https://sbmm.com.au"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block border border-white/40 text-white px-[18px] py-[10px] rounded-[3px] text-[10px] tracking-[0.14em] uppercase font-jost font-light hover:bg-white/10 transition-colors"
-                  >
-                    Visit South Beach ↗
-                  </a>
+                  <p className="text-[11px] text-ink/45 font-sans font-normal mb-6">Mount Martha</p>
+                  <span className="inline-flex w-fit items-center border-l-2 border-transparent group-hover:border-teal pl-3 text-[10px] uppercase tracking-[0.15em] text-ink/45 group-hover:text-teal font-sans font-normal transition-colors">
+                    Visit venue →
+                  </span>
                 </div>
-              </div>
+              </a>
 
               {/* Coming Soon */}
-              <div className="relative rounded-[4px] overflow-hidden h-[420px] md:h-[500px] flex flex-col justify-end border border-dashed border-[#C4B89A]/40">
-                <div className="absolute inset-0 bg-charcoal" />
-                <div className="relative z-10 p-7 pb-8">
-                  <p className="text-[9px] tracking-[0.2em] uppercase text-gold/60 font-jost font-light mb-3">
+              <div
+                className="relative overflow-hidden aspect-[3/4] flex flex-col items-center justify-center text-center p-8"
+                style={{ background: '#141414' }}
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage:
+                      'repeating-linear-gradient(45deg, rgba(240,236,228,0.015) 0px, rgba(240,236,228,0.015) 1px, transparent 1px, transparent 9px)',
+                  }}
+                />
+                <div className="relative z-10 flex flex-col items-center">
+                  <LogoDevice size="lg" showBar={false} />
+                  <p className="text-[9px] uppercase tracking-[0.25em] text-ink/45 font-sans font-normal mt-8 mb-3">
                     Coming Soon
                   </p>
-                  <h3 className="font-cormorant italic font-light text-[38px] md:text-[42px] text-white/40 leading-[1] mb-2">
+                  <h3 className="font-display font-semibold uppercase text-[28px] text-ink/70 leading-none mb-2">
                     New Venue
                   </h3>
-                  <p className="font-jost font-light text-[12px] text-white/30 tracking-[0.06em] mb-6">
-                    Mornington Peninsula
-                  </p>
-                  <span className="inline-block border border-white/15 text-white/30 px-[18px] py-[10px] rounded-[3px] text-[10px] tracking-[0.14em] uppercase font-jost font-light">
-                    More to come
+                  <p className="text-[11px] text-ink/45 font-sans font-normal mb-6">To be announced</p>
+                  <span className="text-[10px] uppercase tracking-[0.15em] text-ink/25 font-sans font-normal">
+                    Stay tuned
                   </span>
                 </div>
               </div>
@@ -167,81 +184,78 @@ export default function HomePage() {
           </div>
         </section>
 
-        <ColourDeviceStrip />
-
-        {/* ── ABOUT ── */}
-        <section className="bg-white py-[48px] md:py-[64px]">
-          <div className="max-w-7xl mx-auto px-6 md:px-[60px] mb-9 md:mb-11">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
-              About VSB Group
-            </p>
-            <h2 className="font-cormorant font-light text-[34px] md:text-[44px] text-charcoal leading-[1.05] mb-[6px] tracking-[0.02em]">
-              The group behind
-            </h2>
-            <p className="font-cormorant italic font-light text-[34px] md:text-[44px] text-charcoal leading-[1.05] mb-5 tracking-[0.02em]">
-              the experience
-            </p>
-            <p className="font-cormorant italic font-light text-[18px] text-warm mb-5">
-              Hospitality with heart, on the Mornington Peninsula
-            </p>
-            <p className="text-[13px] leading-[1.8] text-warm font-jost font-light mb-7 max-w-2xl">
-              VSB Group is a hospitality company based on Victoria&apos;s Mornington Peninsula. We operate
-              distinctive dining venues — each with its own personality — united by a shared commitment
-              to exceptional food, genuine service, and warm, memorable hospitality.
-            </p>
-            <Link
-              href="/about"
-              className="text-[11px] tracking-[0.12em] uppercase text-gold font-jost font-normal border border-gold px-[22px] py-[12px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
-            >
-              Our Story →
-            </Link>
-          </div>
-
-          <div className="relative w-full h-[320px] md:h-[560px]">
+        {/* ── ABOUT SPLIT ── */}
+        <section className="grid grid-cols-1 md:grid-cols-2 min-h-[560px] md:min-h-[640px]">
+          <div className="relative h-[360px] md:h-auto">
             <Image
               src="/assets/south-beach-about-05.jpg"
               alt="The team behind VSB Group"
               fill
               className="object-cover object-center"
-              sizes="100vw"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
+          </div>
+
+          <div className="bg-void flex flex-col justify-center py-20 px-8 md:px-16">
+            <p className="section-label text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal mb-4">
+              The Group
+            </p>
+            <h2 className="font-display font-semibold uppercase text-ink leading-[0.95] text-[36px] md:text-[52px] mb-6">
+              The people <span className="text-ink/30">behind it</span>
+            </h2>
+            <p className="font-sans font-light text-[15px] text-ink/60 leading-[1.8] max-w-[420px] mb-8">
+              VSB Group is a hospitality company based on Victoria&apos;s Mornington Peninsula. We back
+              distinctive, independently-minded venues and the people who run them — investing in
+              craft, character and consistency rather than a single house style.
+            </p>
+            <Link
+              href="/about"
+              className="self-start text-ink text-[11px] font-sans font-medium uppercase tracking-[0.12em] border-b border-ink/20 pb-1 hover:border-ink/50 transition-colors"
+            >
+              Our Story →
+            </Link>
           </div>
         </section>
 
-        <ColourDeviceStrip />
-
-        {/* ── BOOK CTA ── */}
-        <section className="bg-charcoal py-[52px] md:py-[72px] text-white md:text-center">
-          <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
-              Dine with us
+        {/* ── VALUES ── */}
+        <section className="bg-[#111111] py-16 px-6 md:py-24 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <p className="section-label text-[10px] uppercase tracking-[0.25em] text-ink/35 font-sans font-normal mb-4">
+              What Drives Us
             </p>
-            <h2 className="font-cormorant font-light text-[34px] md:text-[52px] leading-[1.05] mb-[8px]">
-              Ready to book?
+            <h2 className="font-display font-semibold uppercase text-ink leading-none text-[36px] md:text-[52px]">
+              Built on three <span className="text-ink/30">principles</span>
             </h2>
-            <p className="font-cormorant italic font-light text-[18px] text-white/55 mb-8">
-              Make a reservation at either of our venues
-            </p>
-            <div className="flex flex-col md:flex-row md:justify-center gap-[10px] md:gap-3">
-              <Link
-                href="/bookings"
-                className="bg-gold text-charcoal py-[14px] md:px-[32px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal text-center hover:opacity-90 transition-opacity"
-              >
-                Book Now
-              </Link>
-              <Link
-                href="/whats-on"
-                className="bg-transparent border border-white/35 text-white py-[13px] md:px-[32px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal text-center hover:bg-white/8 transition-colors"
-              >
-                What&apos;s On
-              </Link>
-              <Link
-                href="/contact"
-                className="bg-transparent border border-white/35 text-white py-[13px] md:px-[32px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal text-center hover:bg-white/8 transition-colors"
-              >
-                Contact Us
-              </Link>
+
+            <div className="grid md:grid-cols-3 gap-[2px] mt-14">
+              {VALUES.map((v, i) => (
+                <div key={v.title} className="bg-[#161616] px-10 py-12">
+                  <p className="font-display font-bold text-[56px] text-ink/5 leading-none mb-4">
+                    {String(i + 1).padStart(2, '0')}
+                  </p>
+                  <h3 className="font-display font-semibold uppercase text-[22px] text-ink mb-3">{v.title}</h3>
+                  <p className="font-sans font-light text-[13px] text-ink/45 leading-[1.7]">{v.body}</p>
+                </div>
+              ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── CTA BANNER ── */}
+        <section className="bg-ink text-void py-16 px-6 md:py-20 md:px-12">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <h2
+              className="font-display font-semibold uppercase leading-[0.95]"
+              style={{ fontSize: 'clamp(36px, 4vw, 56px)' }}
+            >
+              Ready to make a reservation?
+            </h2>
+            <Link
+              href="/bookings"
+              className="shrink-0 bg-void text-ink px-8 py-4 text-[11px] font-sans font-semibold uppercase tracking-[0.12em] hover:opacity-90 transition-opacity"
+            >
+              Book a Table
+            </Link>
           </div>
         </section>
       </main>

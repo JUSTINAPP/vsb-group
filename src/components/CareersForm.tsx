@@ -6,17 +6,17 @@ import SubmitButton from './SubmitButton'
 
 const ROLES = ['Front of House', 'Kitchen', 'Bar', 'Events', 'Other']
 
-const INPUT = 'w-full bg-white border border-[#DDDAD6] rounded-[3px] px-[13px] py-[11px] text-charcoal text-[13px] font-jost font-light placeholder:text-[#B0ABA6] outline-none focus:border-sky'
-const LABEL = 'text-[9px] tracking-[0.16em] uppercase text-warm font-jost font-normal block mb-[5px]'
+const INPUT = 'w-full bg-white border border-[#DDDAD6] rounded-[3px] px-[13px] py-[11px] text-charcoal text-[13px] font-sans font-light placeholder:text-[#B0ABA6] outline-none focus:border-sky'
+const LABEL = 'text-[9px] tracking-[0.16em] uppercase text-warm font-sans font-normal block mb-[5px]'
 
 export default function CareersForm() {
   const [state, action] = useActionState(sendCareerApplication, {})
 
   if (state.success) {
     return (
-      <div className="bg-sky-light border border-sky/20 rounded-[4px] px-5 py-6 text-charcoal font-jost font-light text-[14px]">
-        <p className="font-cormorant text-[22px] font-light mb-2">Application received!</p>
-        <p className="text-warm text-[13px] font-jost font-light">
+      <div className="bg-sky-light border border-sky/20 rounded-[4px] px-5 py-6 text-charcoal font-sans font-light text-[14px]">
+        <p className="font-display uppercase tracking-tight text-[22px] font-semibold mb-2">Application received!</p>
+        <p className="text-warm text-[13px] font-sans font-light">
           Thanks for your interest in joining the South Beach team. We&apos;ll be in touch if there&apos;s a good fit.
         </p>
       </div>
@@ -26,7 +26,7 @@ export default function CareersForm() {
   return (
     <form action={action} className="flex flex-col gap-4" encType="multipart/form-data">
       {state.error && (
-        <p className="text-[12px] text-red-600 font-jost">{state.error}</p>
+        <p className="text-[12px] text-red-600 font-sans">{state.error}</p>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -71,15 +71,15 @@ export default function CareersForm() {
           id="ca-cv"
           name="cv"
           accept=".pdf,.doc,.docx"
-          className="w-full text-[13px] font-jost font-light text-warm file:mr-3 file:py-[8px] file:px-[14px] file:rounded-[3px] file:border file:border-sky file:text-[10px] file:tracking-[0.1em] file:uppercase file:font-jost file:text-sky file:bg-transparent hover:file:bg-sky hover:file:text-white file:transition-colors file:cursor-pointer"
+          className="w-full text-[13px] font-sans font-light text-warm file:mr-3 file:py-[8px] file:px-[14px] file:rounded-[3px] file:border file:border-sky file:text-[10px] file:tracking-[0.1em] file:uppercase file:font-sans file:text-sky file:bg-transparent hover:file:bg-sky hover:file:text-white file:transition-colors file:cursor-pointer"
         />
-        <p className="text-[10px] text-warm/60 font-jost mt-1">PDF, DOC or DOCX · max 5 MB</p>
+        <p className="text-[10px] text-warm/60 font-sans mt-1">PDF, DOC or DOCX · max 5 MB</p>
       </div>
 
       <SubmitButton
         label="Submit Application"
         pendingLabel="Submitting…"
-        className="bg-sky text-white py-[15px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal w-full text-center mt-2"
+        className="bg-sky text-white py-[15px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-sans font-normal w-full text-center mt-2"
       />
     </form>
   )

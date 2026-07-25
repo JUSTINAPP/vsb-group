@@ -16,7 +16,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
             className="w-full flex items-center justify-between py-5 text-left gap-4"
             aria-expanded={open === i}
           >
-            <span className="font-cormorant font-light text-[19px] md:text-[21px] text-charcoal leading-[1.2]">
+            <span className="font-display uppercase tracking-tight font-semibold text-[19px] md:text-[21px] text-charcoal leading-[1.2]">
               {item.q}
             </span>
             <span
@@ -31,7 +31,7 @@ export default function FaqAccordion({ items }: { items: FaqItem[] }) {
           </button>
           {open === i && (
             <div className="pb-5 pr-8">
-              <p className="text-[13px] text-warm font-jost font-light leading-[1.8]">{item.a}</p>
+              <p className="text-[13px] text-warm font-sans font-light leading-[1.8]">{item.a}</p>
             </div>
           )}
         </div>

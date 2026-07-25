@@ -47,17 +47,17 @@ export default function BottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className="md:hidden bg-[rgba(18,18,16,0.97)] border-t border-white/7 flex sticky bottom-0 z-50">
+    <nav className="md:hidden bg-void/95 border-t border-ink/8 flex sticky bottom-0 z-50">
       {tabs.map((tab) => {
         const active = tab.href === '/' ? pathname === '/' : pathname.startsWith(tab.href)
         return (
           <Link
             key={tab.href}
             href={tab.href}
-            className={`flex-1 flex flex-col items-center pt-[11px] pb-[9px] gap-[3px] text-[9px] tracking-[0.1em] uppercase font-jost font-light border-b-[1.5px] transition-colors ${
+            className={`flex-1 flex flex-col items-center pt-[11px] pb-[9px] gap-[3px] text-[9px] tracking-[0.1em] uppercase font-sans font-light border-b-[1.5px] transition-colors ${
               active
-                ? 'text-gold border-b-gold'
-                : 'text-white/38 border-b-transparent'
+                ? 'text-teal border-b-teal'
+                : 'text-ink/38 border-b-transparent'
             }`}
           >
             {tab.icon}

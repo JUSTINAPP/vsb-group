@@ -4,7 +4,6 @@ import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
 import CareersForm from '@/components/CareersForm'
-import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
   title: { absolute: 'Careers | VSB Group' },
@@ -50,17 +49,17 @@ export default function CareersPage() {
 
               {/* Left: copy */}
               <div>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-sans font-normal mb-[10px]">
                   Work with us
                 </p>
-                <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
+                <h2 className="font-display uppercase tracking-tight font-semibold text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
                   Be part of something special
                 </h2>
-                <p className="font-cormorant italic font-light text-[18px] text-warm mb-6">
+                <p className="font-sans font-light text-[18px] text-warm mb-6">
                   Good people, great venues, the Peninsula
                 </p>
 
-                <div className="text-[13px] leading-[1.8] text-warm font-jost font-light space-y-4 mb-8">
+                <div className="text-[13px] leading-[1.8] text-warm font-sans font-light space-y-4 mb-8">
                   <p>
                     VSB Group is a small, growing hospitality company on Victoria&apos;s Mornington
                     Peninsula. Our venues — Volpino Pizzeria &amp; Wine Bar and South Beach Restaurant
@@ -83,10 +82,10 @@ export default function CareersPage() {
                 <div className="space-y-4 mb-8">
                   {VENUES.map(({ name, roles }) => (
                     <div key={name} className="bg-sky-light rounded-[4px] border-l-2 border-gold px-[18px] py-4">
-                      <p className="text-[9px] tracking-[0.18em] uppercase text-charcoal font-jost font-normal mb-2">
+                      <p className="text-[9px] tracking-[0.18em] uppercase text-charcoal font-sans font-normal mb-2">
                         {name}
                       </p>
-                      <ul className="text-[12px] text-warm font-jost font-light space-y-[4px]">
+                      <ul className="text-[12px] text-warm font-sans font-light space-y-[4px]">
                         {roles.map((role) => (
                           <li key={role} className="flex items-center gap-2">
                             <span className="text-gold shrink-0">·</span>
@@ -99,10 +98,10 @@ export default function CareersPage() {
                 </div>
 
                 <div className="bg-cream rounded-[4px] border-l-2 border-gold px-[18px] py-4">
-                  <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-jost font-normal mb-2">
+                  <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-sans font-normal mb-2">
                     What we look for
                   </p>
-                  <ul className="text-[13px] text-charcoal font-jost font-light leading-[1.8] space-y-1">
+                  <ul className="text-[13px] text-charcoal font-sans font-light leading-[1.8] space-y-1">
                     {[
                       'Warm, genuine hospitality',
                       'Reliability and a positive attitude',
@@ -121,13 +120,13 @@ export default function CareersPage() {
 
               {/* Right: form */}
               <div className="mt-12 md:mt-0">
-                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-sans font-normal mb-[10px]">
                   Apply now
                 </p>
-                <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
+                <h2 className="font-display uppercase tracking-tight font-semibold text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
                   Send us your details
                 </h2>
-                <p className="font-cormorant italic font-light text-[18px] text-warm mb-8">
+                <p className="font-sans font-light text-[18px] text-warm mb-8">
                   We&apos;ll be in touch if there&apos;s a good fit
                 </p>
                 <CareersForm />
@@ -136,8 +135,6 @@ export default function CareersPage() {
             </div>
           </div>
         </section>
-
-        <ColourDeviceStrip />
       </main>
       <Footer />
       <BottomNav />

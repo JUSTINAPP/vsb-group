@@ -1,20 +1,19 @@
 import type { Metadata } from 'next'
-import { Cormorant, Jost } from 'next/font/google'
+import { Barlow_Condensed, DM_Sans } from 'next/font/google'
 import ReCaptchaProvider from '@/components/ReCaptchaProvider'
 import './globals.css'
 
-const cormorant = Cormorant({
-  variable: '--font-cormorant',
+const barlowCondensed = Barlow_Condensed({
+  variable: '--font-barlow-condensed',
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  style: ['normal', 'italic'],
+  weight: ['300', '600', '700'],
   display: 'swap',
 })
 
-const jost = Jost({
-  variable: '--font-jost',
+const dmSans = DM_Sans({
+  variable: '--font-dm-sans',
   subsets: ['latin'],
-  weight: ['200', '300', '400', '500'],
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
 })
 
@@ -72,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${jost.variable}`}>
+    <html lang="en" className={`${barlowCondensed.variable} ${dmSans.variable}`}>
       <head>
         <link rel="icon" href="/assets/south_beach_512x512.png" type="image/png" />
         <script

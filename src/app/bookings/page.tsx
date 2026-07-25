@@ -4,7 +4,6 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import BottomNav from '@/components/BottomNav'
 import PageHero from '@/components/PageHero'
-import { ColourDeviceStrip } from '@/components/ColourDeviceStrip'
 
 export const metadata: Metadata = {
   title: { absolute: 'Book Now | VSB Group' },
@@ -58,27 +57,27 @@ export default function BookingsPage() {
 
         <section className="bg-white py-[48px] md:py-[64px]">
           <div className="max-w-7xl mx-auto px-6 md:px-[60px]">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
+            <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-sans font-normal mb-[10px]">
               Our venues
             </p>
-            <h2 className="font-cormorant font-light text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
+            <h2 className="font-display uppercase tracking-tight font-semibold text-[34px] md:text-[42px] text-charcoal leading-[1.05] mb-2 tracking-[0.02em]">
               Where would you like to dine?
             </h2>
-            <p className="font-cormorant italic font-light text-[18px] text-warm mb-10">
+            <p className="font-sans font-light text-[18px] text-warm mb-10">
               Volpino · South Beach
             </p>
 
             <div className="grid md:grid-cols-2 gap-5">
               {VENUES.map(({ name, tag, desc, cta, href, primary, note }) => (
                 <div key={name} className="bg-cream rounded-[4px] border border-[#EDECEA] px-6 py-7 flex flex-col">
-                  <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-jost font-normal mb-2">{tag}</p>
-                  <h3 className="font-cormorant font-light text-[24px] text-charcoal mb-3 leading-[1.1]">{name}</h3>
-                  <p className="text-[12px] text-warm font-jost font-light leading-[1.7] mb-6 flex-1">{desc}</p>
+                  <p className="text-[9px] tracking-[0.18em] uppercase text-gold font-sans font-normal mb-2">{tag}</p>
+                  <h3 className="font-display uppercase tracking-tight font-semibold text-[24px] text-charcoal mb-3 leading-[1.1]">{name}</h3>
+                  <p className="text-[12px] text-warm font-sans font-light leading-[1.7] mb-6 flex-1">{desc}</p>
                   <a
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`block text-center py-[13px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-jost font-normal transition-all ${
+                    className={`block text-center py-[13px] rounded-[3px] text-[11px] tracking-[0.12em] uppercase font-sans font-normal transition-all ${
                       primary
                         ? 'bg-gold text-white hover:opacity-90'
                         : 'bg-transparent border border-gold text-gold hover:bg-gold hover:text-white'
@@ -87,27 +86,25 @@ export default function BookingsPage() {
                     {cta}
                   </a>
                   {note && (
-                    <p className="text-[10px] text-warm/50 font-jost font-light text-center mt-2">{note}</p>
+                    <p className="text-[10px] text-warm/50 font-sans font-light text-center mt-2">{note}</p>
                   )}
                 </div>
               ))}
             </div>
 
             <div className="mt-8 text-center">
-              <p className="text-[12px] text-warm font-jost font-light mb-3">
+              <p className="text-[12px] text-warm font-sans font-light mb-3">
                 Need help planning a private event or function?
               </p>
               <Link
                 href="/contact"
-                className="text-[11px] tracking-[0.12em] uppercase text-gold font-jost font-normal border border-gold px-[22px] py-[11px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
+                className="text-[11px] tracking-[0.12em] uppercase text-gold font-sans font-normal border border-gold px-[22px] py-[11px] rounded-[3px] hover:bg-gold hover:text-white transition-colors inline-block"
               >
                 Group Enquiries →
               </Link>
             </div>
           </div>
         </section>
-
-        <ColourDeviceStrip />
       </main>
       <Footer />
       <BottomNav />
