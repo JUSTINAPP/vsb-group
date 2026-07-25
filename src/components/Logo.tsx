@@ -1,12 +1,25 @@
-export default function Logo({ className = '' }: { className?: string }) {
+import Image from 'next/image'
+
+export default function Logo({
+  variant = 'white',
+  className = 'h-10',
+}: {
+  variant?: 'white' | 'dark'
+  className?: string
+}) {
+  const src =
+    variant === 'dark'
+      ? '/dark_logo_transparent_background.png'
+      : '/white_logo_transparent_background.png'
+
   return (
-    <div className={`flex flex-col leading-none ${className}`}>
-      <span className="font-cormorant italic font-light text-[22px] tracking-[0.06em]">
-        VSB
-      </span>
-      <span className="font-jost font-light text-[7px] tracking-[0.45em] uppercase mt-[3px]">
-        GROUP
-      </span>
-    </div>
+    <Image
+      src={src}
+      alt="VSB Group"
+      width={3400}
+      height={2747}
+      priority
+      className={`w-auto ${className}`}
+    />
   )
 }

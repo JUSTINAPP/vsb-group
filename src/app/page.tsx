@@ -170,8 +170,8 @@ export default function HomePage() {
         <ColourDeviceStrip />
 
         {/* ── ABOUT ── */}
-        <div className="md:grid md:grid-cols-2">
-          <section className="bg-white py-[48px] md:py-[64px] px-6 md:px-[56px]">
+        <section className="bg-white py-[48px] md:py-[64px]">
+          <div className="max-w-7xl mx-auto px-6 md:px-[60px] mb-9 md:mb-11">
             <p className="text-[10px] tracking-[0.2em] uppercase text-gold font-jost font-normal mb-[10px]">
               About VSB Group
             </p>
@@ -184,7 +184,7 @@ export default function HomePage() {
             <p className="font-cormorant italic font-light text-[18px] text-warm mb-5">
               Hospitality with heart, on the Mornington Peninsula
             </p>
-            <p className="text-[13px] leading-[1.8] text-warm font-jost font-light mb-7">
+            <p className="text-[13px] leading-[1.8] text-warm font-jost font-light mb-7 max-w-2xl">
               VSB Group is a hospitality company based on Victoria&apos;s Mornington Peninsula. We operate
               distinctive dining venues — each with its own personality — united by a shared commitment
               to exceptional food, genuine service, and warm, memorable hospitality.
@@ -195,18 +195,18 @@ export default function HomePage() {
             >
               Our Story →
             </Link>
-          </section>
+          </div>
 
-          <div className="relative h-[280px] md:h-auto min-h-0 md:min-h-[420px]">
+          <div className="relative w-full h-[320px] md:h-[560px]">
             <Image
-              src="/assets/SOUTH-BEACH_2400x1300_DSC_9232.jpg"
-              alt="VSB Group"
+              src="/assets/south-beach-about-05.jpg"
+              alt="The team behind VSB Group"
               fill
               className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="100vw"
             />
           </div>
-        </div>
+        </section>
 
         <ColourDeviceStrip />
 

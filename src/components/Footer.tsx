@@ -25,7 +25,7 @@ export default function Footer() {
       <div className="bg-[#5e5f58] text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-[60px] pt-10 pb-7 md:pt-[52px] md:pb-9">
           {/* Logo + tagline */}
-          <Logo className="mb-[8px] text-white" />
+          <Logo variant="white" className="h-12 mb-3" />
           <p className="font-cormorant italic font-light text-[15px] text-white mb-[26px]">
             Hospitality with heart.
           </p>

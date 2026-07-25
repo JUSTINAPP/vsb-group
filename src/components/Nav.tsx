@@ -19,8 +19,8 @@ export default function Nav() {
       <nav className="bg-charcoal sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-[22px] min-[985px]:px-10 h-[66px] min-[985px]:h-[72px] flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" aria-label="VSB Group — home" onClick={() => setOpen(false)} className="text-white">
-            <Logo />
+          <Link href="/" aria-label="VSB Group — home" onClick={() => setOpen(false)}>
+            <Logo variant="white" />
           </Link>
 
           {/* Desktop nav links */}
